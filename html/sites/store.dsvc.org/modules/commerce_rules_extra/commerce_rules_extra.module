@@ -1,0 +1,92 @@
+<?php
+
+/**
+ * Takes the machine name of a Taxonomy reference field and retrieves the terms
+ * for the associated vocabulary.
+ * 
+ * @param string $field_name
+ *   A string containing the machine name of a Taxonomy reference field.
+ * 
+ * @return
+ *   An array containing the term names of the vocabulary tied to $field_name
+ *   prefixed with a certain number of dashes(-) corresponding to the depth of
+ *   the term. Term names are keyed by term id.
+ */
+function commerce_rules_extra_get_terms_list($field_name) {
+  $field = field_read_field($field_name);
+  $vocabulary = taxonomy_vocabulary_machine_name_load($field['settings']['allowed_values'][0]['vocabulary']);
+  $terms = taxonomy_get_tree($vocabulary->vid);
+  $term_list = array();
+  if (!empty($terms)) {
+    foreach ($terms as $term) {
+      $term_list[$term->tid] = str_repeat('-', $term->depth) . $term->name;
+    }
+  }
+
+  return $term_list;
+}
+
+
+/**
+ * An empty options list so that Rules conditions that need manually populated
+ * options sets will have their form variables populated correctly.
+ */
+function commerce_rules_extra_empty_options_list() {
+  return array();
+}
+
+/**
+ *  Implements hook_commerce_checkout_pane_info_alter
+ *  
+ * Invoke all rules for view_checkout_pane event and alter panes properties returned by rules  
+ **/ 
+function commerce_rules_extra_commerce_checkout_pane_info_alter(&$checkout_panes) {
+  global $pane_changes;
+  if (! $pane_changes) $pane_changes = array();
+  $urls = array('checkout');
+  drupal_alter('checkout_pane_urls',$urls);
+  if (in_array(arg(0), $urls)) {
+     $commerce_order = menu_get_object('commerce_order');
+     if (null == $commerce_order){$commerce_order = commerce_cart_get_properties(FALSE, array(), "current_cart_order");}
+     rules_invoke_all('process_checkout_pane', $commerce_order);
+     foreach ($pane_changes as $pane_id => $changes) {
+         $checkout_panes[$pane_id]['enabled'] = $changes["enabled"];
+         if ($changes["weight"] != "") $checkout_panes[$pane_id]['weight'] = $changes["weight"];
+         if ($changes["page_id"] != "<same>") {
+            $checkout_panes[$pane_id]['page'] = $changes['page_id'];
+         }
+     }
+  }
+}
+
+/**
+ * * Implements hook_form_alter().
+ */
+function commerce_rules_extra_form_alter(&$form, &$form_state, $form_id) {
+  if (strpos($form_id, 'views_form_commerce_cart_form_') === 0 && array_key_exists("submit", $form["actions"])) {
+     array_unshift($form['actions']['submit']['#submit'],'commerce_rules_extra_cart_submit');
+  }
+}
+function commerce_rules_extra_cart_submit($form, &$form_state) {
+  $order = $form_state['order'];
+  $line_items = $form_state['line_items'];
+  $i = 0;
+  foreach($line_items as $line_item) {
+    $line_item_wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+    $product = $line_item_wrapper->commerce_product->value();
+    if (floatval($form['edit_quantity'][$i]['#value']) !=  floatval($line_item->quantity)) {
+      $line_item->quantity = $form['edit_quantity'][$i]['#value'];
+      rules_invoke_event('line_item_quantity_changed', $order, $product, $line_item);
+    }
+    $i++;
+  }
+}
+ 
+function commerce_rules_extra_commerce_cart_product_add($order, $product, $quantity, $line_item) {
+    rules_invoke_event('line_item_quantity_changed', $order, $product, $line_item);
+}
+
+function commerce_rules_extra_commerce_cart_product_remove($order, $product, $quantity, $line_item) {
+    rules_invoke_event('line_item_quantity_changed', $order, $product, $line_item);
+}
+

@@ -1,0 +1,4 @@
+name = DSVC Site Module
+description = Customization for the DSVC site i.e. overriding theme for job postings (node/add/job-posting)
+package = Other
+core = 7.x

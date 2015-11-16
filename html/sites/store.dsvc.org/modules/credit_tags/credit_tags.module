@@ -1,0 +1,187 @@
+<?php
+
+define('COL_1_POS_X', 57);
+define('COL_2_POS_X', 120);
+
+function credit_tags_menu() {
+	$items = array();
+
+	$items['credit-tags/generate'] = array(
+		'title' => t('Generate Credit Tags'),
+		'type' => MENU_NORMAL_ITEM,
+		'page callback' => 'credit_tags_generate',
+		'access callback' => 'credit_tags_access',
+	);
+
+	$items['credit-tag/%node'] = array(
+		'title' => t('Create Credit Tags'),
+		'type' => MENU_NORMAL_ITEM,
+		'page callback' => 'credit_tags_create',
+		'page arguments' => array(1),
+		'access callback' => 'credit_tags_access',
+	);
+
+	return $items;
+}
+
+function credit_tags_access() {
+	return true;
+}
+
+function credit_tags_create($node) {
+	global $user;
+	module_load_include('inc', 'node', 'node.pages');
+
+  $new_node = (object) array(
+    'uid' => $user->uid,
+    'name' => (isset($user->name) ? $user->name : ''),
+    'type' => 'credit_tag',
+    'language' => LANGUAGE_NONE,
+  );
+
+  $form = drupal_get_form('credit_tag_node_form', $new_node);
+
+  $output = drupal_render($form);
+
+	return $output;
+}
+
+function credit_tags_form_alter(&$form, &$form_state, $form_id) {
+	if ($form_id == 'credit_tag_node_form') {
+		if (arg(0) == 'credit-tag' && arg(1)) {
+			$show_entry = node_load(arg(1));
+			$form['title_field'][LANGUAGE_NONE][0]['value']['#default_value'] = $show_entry->title;
+			$form['field_agency'][LANGUAGE_NONE][0]['value']['#default_value'] = $show_entry->field_receipt_agency_information[LANGUAGE_NONE][0]['organisation_name'];
+			$form['field_credit_client'][LANGUAGE_NONE][0]['value']['#default_value'] = $show_entry->field_receipt_client[LANGUAGE_NONE][0]['value'];
+			$form['field_show_piece'][LANGUAGE_NONE][0]['nid']['#default_value'] = $show_entry->nid;
+			$form['field_show_category'][LANGUAGE_NONE]['#default_value'] = $show_entry->field_show_category[LANGUAGE_NONE][0]['tid'];
+		}
+	}
+}
+
+function credit_tags_node_create ($node) {
+  if ($node->type == 'show') {
+     drupal_goto('show-entry-credit-tags');
+  }
+}
+
+function credit_tags_generate() {
+	global $user;
+	libraries_load('fpdf');
+	libraries_load('fpdi');
+
+	$output = "<h1>Generating PDF</h1>";
+
+	$nids = db_select('node', 'n')
+					->fields('n', array('nid'))
+					->condition('n.type', 'credit_tag')
+					->condition('n.uid', $user->uid)
+					->execute()
+					->fetchCol();
+
+	$nodes = node_load_multiple($nids);
+
+	$pdf = new FPDI();
+
+	$pdf->setSourceFile(drupal_get_path('module', 'credit_tags') . '/credit_tags.pdf');
+	$pdf->SetFont('Helvetica', '', '9');
+	$pdf->SetTextColor(0,0,0);
+
+	$tplDesign = $pdf->importPage(1);
+	$tplDesignExtended = $pdf->importPage(2);
+	$tplAdvertising = $pdf->importPage(3);
+	$tplWeb = $pdf->importPage(4);
+
+	foreach($nodes as $node) {
+		$tag = credit_tags_process_tag($node);
+	}
+
+	// $pdf->AddPage();
+	// $pdf->useTemplate($tplDesign, 0, 0, 0, 0, true);
+	// credit_tags_write_tag($pdf, 20.5, 6, $tag);
+	// credit_tags_write_tag($pdf, 85.5, 6, $tag);
+	// credit_tags_write_tag($pdf, 155, 6, $tag);
+	// credit_tags_write_tag($pdf, 220.5, 6, $tag);
+
+	// $pdf->AddPage();
+	// $pdf->useTemplate($tplAdvertising, 0, 0, 0, 0, true);
+	// credit_tags_write_tag($pdf, 25.5, 8, $tag);
+	// credit_tags_write_tag($pdf, 105, 8, $tag);
+	// credit_tags_write_tag($pdf, 201, 8, $tag);
+
+	// $pdf->AddPage();
+	// $pdf->useTemplate($tplWeb, 0, 0, 0, 0, true);
+	// credit_tags_write_tag($pdf, 24, 8, $tag);
+	// credit_tags_write_tag($pdf, 113, 8, $tag);
+	// credit_tags_write_tag($pdf, 202, 8, $tag);
+
+	//force the browser to download the output
+	// $pdf->Output('credit_tags_generated.pdf', 'D');
+
+	return $output;
+}
+
+function credit_tags_process_tag($node) {
+	$tid = $node->field_show_category[LANGUAGE_NONE][0]['tid'];
+	$term = taxonomy_term_load($tid);
+	preg_match("/.*\((.*)\).*/", $term->name, $matches);
+	$category_number = $matches[1];
+
+	$tag_data = (object) array(
+		'type' => 'design_standard',
+		'entry_number' => $node->field_show_piece[LANGUAGE_NONE][0]['nid'],
+		'category' => $category_number,
+		'title' => $node->title,
+		'agency' => $node->field_agency[LANGUAGE_NONE][0]['value'],
+		'client' => $node->field_credit_client[LANGUAGE_NONE][0]['value'],
+	);
+
+	$advertising_credits = array('director', 'director_of_photography', 'producer', 'editor');
+	$web_credits = array('developer', 'ux_designer', 'ui_designer', 'information_architect', 'project_manager');
+
+	$wrapper = entity_metadata_wrapper('node', $node);
+
+	for ($x = 0; $x < count($node->field_credits[LANGUAGE_NONE]); $x++) {
+		$title = strtolower(str_replace(' ', '_', $wrapper->field_credits[$x]->field_title->value()));
+		$credit = $wrapper->field_credits[$x]->field_credit_name->value();
+
+		$tag_data->{$title} = $credit;
+
+		if (in_array($title, $advertising_credits)) {
+			$tag_data->type = 'advertising_standard';
+		}
+
+		if (in_array($title, $web_credits)) {
+			$tag_data->type = 'web_standard';
+		}
+	}
+
+	dsm($tag_data);
+}
+
+function credit_tags_write_tag($pdf, $y_pos, $lines, $tag) {
+	$pdf->setXY(35.5, $y_pos+7.5);
+	$pdf->Write(0, $tag->entry_number);
+
+	$pdf->setXY(35.5, $y_pos+18.5);
+	$pdf->Write(0, $tag->category);
+
+	for ($x = 0; $x < $lines; $x++) {
+		switch ($x) {
+			case 0:
+				$pdf->SetXY(COL_1_POS_X, $y_pos);
+				$pdf->Write(0, 'asdf');
+
+				$pdf->SetXY(COL_2_POS_X, $y_pos);
+				$pdf->Write(0, 'asdf');
+		}
+
+		if ($x % 2 == 0) {
+			$y_pos = $y_pos + 7.5;
+		}
+		else {
+			$y_pos = $y_pos + 7;
+		}
+	}
+}
+

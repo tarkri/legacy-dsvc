@@ -1,0 +1,7 @@
+name = Credit Tags Module
+description = Generate credit tags for show entries
+package = Other
+dependencies[] = libraries
+dependencies[] = fpdf
+dependencies[] = fpdi
+core = 7.x

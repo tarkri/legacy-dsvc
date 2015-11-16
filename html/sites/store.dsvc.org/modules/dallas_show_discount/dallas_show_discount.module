@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file student_show_discount.module
+ * TODO: Enter file description here.
+ */
+
+// function dallas_show_commerce_discount_offer_type_info() {
+//   $types = array();
+//   $types['set_order_amount'] = array(
+//     'label' => t('Set the order value to a certain $ amount'),
+//     'action' => 'dallas_show_discount_set_order_amount',
+//     'entity types' => array('commerce_order'),
+//   );
+
+//   return $types;
+// }

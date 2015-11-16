@@ -1,0 +1,97 @@
+<?php
+/**
+* Implementation of hook_init(). Force loading of the default theme instead of the Administration theme
+*/
+
+function dsvc_form_alter(&$form, &$form_state) {
+  if ($form['#id'] == 'views-exposed-form-job-board-page-1' || $form['#id'] == 'views-exposed-form-job-board-page-2') {
+    $form['submit']['#value'] = "Search Jobs";
+  }
+
+  if ($form['#id'] == 'user-login') {
+		$items = array();
+		$items[] = l(t('Create new account'), 'resources/membership', array('attributes' => array('title' => t('Create new account.'))));
+		$items[] = l(t('Request new password'), 'user/password', array('attributes' => array('title' => t('Request new password via e-mail.'))));
+		$form['links'] = array('#markup' => theme('item_list', array('items' => $items)));
+  }
+}
+
+function dsvc_menu() {
+	$items = array();
+
+	$items['modal/%ctools_js/login'] = array(
+		'title' => 'Login',
+		'page callback' => 'dsvc_login',
+		'page arguments' => array(1),
+		'access callback' => TRUE,
+		'type' => MENU_CALLBACK,
+	);
+
+	return $items;
+}
+
+function dsvc_login($js = NULL) {
+	if (!$js) {
+		return drupal_get_form('user_login');
+	}
+
+	ctools_include('modal');
+	ctools_include('ajax');
+	$form_state = array(
+		'title' => t('Log in'),
+		'ajax' => TRUE,
+	);
+
+	$output = ctools_modal_form_wrapper('user_login', $form_state);
+	if (!empty($form_state['executed'])) {
+		// We'll just overwrite the form output if it was successful.
+		$output = array();
+		ctools_add_js('ajax-responder');
+		$output[] = ctools_modal_command_dismiss(t('Login Success'));
+		if (isset($_GET['destination'])) {
+			$output[] = ctools_ajax_command_redirect($_GET['destination']);
+		}
+		else {
+			$output[] = ctools_ajax_command_reload();
+		}
+	}
+	print ajax_render($output);
+	exit;
+}
+
+
+function _dsvc_modal_forms_doheader() {
+	// Include the CTools tools that we need.
+	ctools_include('ajax');
+	ctools_include('modal');
+
+	// Add CTools' javascript to the page.
+	ctools_modal_add_js();
+
+	$throbber = theme('image', array('path' => ctools_image_path('loading_animation.gif', 'modal_forms'), 'alt' => t('Loading...'), 'title' => t('Loading')));
+
+	$js_settings = array(
+		'dsvc-modal' => array(
+			'modalSize' => array(
+				'type' => 'scale',
+				'width' => 0.25,
+				'height' => 0.5,
+			),
+			'modalOptions' => array(
+				'opacity' => 0.85,
+				'background' => '#000',
+			),
+			'animation' => 'fadeIn',
+			'modalTheme' => 'DSVCModalDialog',
+			'throbber' => $throbber,
+			'closeText' => t('Close'),
+		)
+	);
+
+	drupal_add_js($js_settings, 'setting');
+
+	// Add modal_forms own js and CSS.
+	// ctools_add_css('modal_forms_popup', 'modal_forms');
+	ctools_add_js('dsvc_modal_setup', 'dsvc');
+}
+

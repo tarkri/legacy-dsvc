@@ -1,0 +1,328 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ * @return Array  Structured array for menu of the module.
+ */
+function dallas_show_admin_menu() {
+  $items = array();
+
+  $items['admin/dallas-show/admin/test'] = array(
+    'title' => 'Entries in show',
+    'page callback' => 'dallas_show_admin_test',
+    'access callback' => 'dallas_show_user_has_role',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/dallas-show/admin/show-start'] = array(
+    'title' => 'Mark Nodes In Show',
+    'page callback' => 'dallas_show_admin_start',
+    'access callback' => 'dallas_show_user_has_role',
+    'type' => MENU_CALLBACK,
+  );
+
+  $items['admin/dallas-show/admin/credit-tags-start'] = array(
+    'title' => 'Fix Credit Tags',
+    'page callback' => 'dallas_show_admin_ctags_start',
+    'access callback' => 'dallas_show_user_has_role',
+    'type' => MENU_CALLBACK,
+  );
+
+
+  return $items;
+}
+
+function dallas_show_user_has_role() {
+  global $user;
+
+  if (in_array('administrator', $user->roles)) {
+      return TRUE;
+  }
+  return FALSE;
+}
+
+function dallas_show_admin_test() {
+	$output = "<p><a href='/admin/dallas-show/admin/credit-tags-start'>Update Credit Tags</a></p>";
+	$output .= db_query("SELECT COUNT(DISTINCT nid) FROM {node} WHERE type = 'credit_tag'")->fetchField();
+
+  $nodes = db_select('node')
+    ->fields('node', array('nid'))
+    ->condition('nid', 0, '>')
+    ->condition('type', 'credit_tag', '=')
+    ->orderBy('nid')
+    ->range(0, 10)
+    ->execute();
+
+  foreach ($nodes as $node) {
+    $output .= "<pre>".print_r($node, true).'</pre>';
+  }
+
+  $nid = db_select('node', 'n')
+    ->condition('n.type', 'show_entry_receipt')
+    ->condition('n.title', 'The Sorry State of Manhattan Movie Houses')
+    ->condition('n.status', 1)
+    ->fields('n', array('nid'))
+    ->execute()
+    ->fetchField();
+
+  $output .= '<p>'.$nid.'</p>';
+
+	return $output;
+}
+
+
+$specials = array(
+  'golden_trash_can' => 1383,
+  'simmons' => 1386,
+  'king' => 1013,
+  'fiscus' => 937,
+  'osborne' => 1394,
+  'uzee' => 1267
+);
+
+/**
+ * Starts the process of creating html files for each page in publish
+ * @param  {String} $release   The release to generate files from
+ */
+function dallas_show_admin_start() {
+  //Load the list of files to compare to - got to make this a backend form
+
+  $batch = array(
+    'title' => t('Converting Taxonomies'),
+    'operations' => array(
+    	array('dallas_show_admin_op_1', array()),
+      array('dallas_show_admin_op_2', array()),
+      array('dallas_show_admin_op_3', array()),
+      // array('dallas_show_admin_op_4', array()),
+    ),
+    'finished' => 'dallas_show_admin_batch_finished',
+    'init_message' => t('Student Show Taxonomy transfer is starting.'),
+    'error_message' => t('Student Show Taxonomy transfer has encountered an error.'),
+  );
+
+  batch_set($batch);
+
+  batch_process('admin/dallas-show/admin/test');
+}
+
+/**
+ * Starts the process of creating html files for each page in publish
+ * @param  {String} $release   The release to generate files from
+ */
+function dallas_show_admin_ctags_start() {
+  //Load the list of files to compare to - got to make this a backend form
+
+  $batch = array(
+    'title' => t('Fixing Credit Tags'),
+    'operations' => array(
+      array('dallas_show_admin_ctags_op_1', array()),
+    ),
+    'finished' => 'dallas_show_admin_batch_finished',
+    'init_message' => t('Fixing Credit Tags is starting.'),
+    'error_message' => t('Fixing Credit Tags has encountered an error.'),
+  );
+
+  batch_set($batch);
+
+  batch_process('admin/dallas-show/admin/test');
+}
+
+/**
+ * Generates HTML files in release directory for each spot type
+ * @param  Object $spot    Spot object to generate files from
+ * @param  Array  $context Variable containing information about the batch process
+ */
+function dallas_show_admin_op_1(&$context) {
+  $bronze_medals = array(1076, 1095, 1113, 1127, 1240, 1245, 1254, 1300, 1309, 1320, 1321, 1380, 1381, 1388);
+
+  if (empty($context['sandbox'])) {
+    $context['sandbox'] = array();
+		$context['sandbox']['current_node'] = 0;
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($bronze_medals);
+  }
+
+  $nodes = node_load_multiple($bronze_medals);
+
+	foreach ($nodes as $node) {
+
+    if (empty($node->field_medal)) {
+      $node->field_medal[LANGUAGE_NONE][0]['value'] = 'Bronze';
+    }
+
+		node_save($node);
+
+		$context['results'][] = $node->nid . ' : ' . check_plain($node->title);
+		$context['sandbox']['progress']++;
+    $context['sandbox']['current_node'] = $node->nid;
+    $context['message'] = t('Now processing %node : %nid', array('%node' => $node->title, '%nid' => $node->nid));
+  }
+
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+/**
+ * Generates HTML files in release directory for each spot type
+ * @param  Object $spot    Spot object to generate files from
+ * @param  Array  $context Variable containing information about the batch process
+ */
+function dallas_show_admin_op_2(&$context) {
+  $silver_medals = array(927, 932, 933, 937, 960, 1013, 1045, 1074, 1077, 1078, 1083, 1090, 1129, 1168, 1182, 1253, 1275, 1303, 1314, 1363, 1382, 1386);
+
+  if (empty($context['sandbox'])) {
+    $context['sandbox'] = array();
+    $context['sandbox']['current_node'] = 0;
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($silver_medals);
+  }
+
+  $nodes = node_load_multiple($silver_medals);
+
+  foreach ($nodes as $node) {
+
+    if (empty($node->field_medal)) {
+      $node->field_medal[LANGUAGE_NONE][0]['value'] = 'Silver';
+    }
+
+    node_save($node);
+
+    $context['results'][] = $node->nid . ' : ' . check_plain($node->title);
+    $context['sandbox']['progress']++;
+    $context['sandbox']['current_node'] = $node->nid;
+    $context['message'] = t('Now processing %node : %nid', array('%node' => $node->title, '%nid' => $node->nid));
+  }
+
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+/**
+ * Generates HTML files in release directory for each spot type
+ * @param  Object $spot    Spot object to generate files from
+ * @param  Array  $context Variable containing information about the batch process
+ */
+function dallas_show_admin_op_3(&$context) {
+  $gold_medals = array(1394, 1267, 944, 1015, 1043, 1236, 1291);
+
+  if (empty($context['sandbox'])) {
+    $context['sandbox'] = array();
+    $context['sandbox']['current_node'] = 0;
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = count($gold_medals);
+  }
+
+  $nodes = node_load_multiple($gold_medals);
+
+  foreach ($nodes as $node) {
+
+    if (empty($node->field_medal)) {
+      $node->field_medal[LANGUAGE_NONE][0]['value'] = 'Gold';
+    }
+
+    node_save($node);
+
+    $context['results'][] = $node->nid . ' : ' . check_plain($node->title);
+    $context['sandbox']['progress']++;
+    $context['sandbox']['current_node'] = $node->nid;
+    $context['message'] = t('Now processing %node : %nid', array('%node' => $node->title, '%nid' => $node->nid));
+  }
+
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+/**
+ * Generates HTML files in release directory for each spot type
+ * @param  Object $spot    Spot object to generate files from
+ * @param  Array  $context Variable containing information about the batch process
+ */
+function dallas_show_admin_ctags_op_1(&$context) {
+  $max_num = db_query("SELECT COUNT(DISTINCT nid) FROM {node} WHERE type = 'credit_tag'")->fetchField();
+
+  if (empty($context['sandbox'])) {
+    $context['sandbox'] = array();
+    $context['sandbox']['current_node'] = 0;
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['max'] = $max_num;
+  }
+
+  $results = db_select('node')
+    ->fields('node', array('nid'))
+    ->condition('nid', $context['sandbox']['current_node'], '>')
+    ->condition('type', 'credit_tag', '=')
+    ->orderBy('nid')
+    ->range(0, 10)
+    ->execute();
+
+  foreach ($results as $row) {
+    $node = node_load($row->nid);
+
+    $nid = db_select('node', 'n')
+      ->condition('n.type', 'show_entry_receipt')
+      ->condition('n.title', $node->title)
+      ->condition('n.status', 1)
+      ->fields('n', array('nid'))
+      ->execute()
+      ->fetchField();
+
+    if (!empty($nid)) {
+      $show_node = node_load($nid);
+      $node->field_show_piece[LANGUAGE_NONE][0]['nid'] = $show_node->nid;
+      $node->field_show_category[LANGUAGE_NONE][0]['tid'] = $show_node->field_show_category[LANGUAGE_NONE][0]['tid'];
+
+      node_save($node);
+    }
+
+    $context['results'][] = $node->nid . ' : ' . check_plain($node->title);
+    $context['sandbox']['progress']++;
+    $context['sandbox']['current_node'] = $node->nid;
+    $context['message'] = t('Now processing %node : %nid', array('%node' => $node->title, '%nid' => $node->nid));
+  }
+
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+/**
+ * Batch 'finished' callback.
+ */
+function dallas_show_admin_batch_finished($success, $results, $operations) {
+  if ($success) {
+    // Here we do something meaningful with the results.
+    $message = t("!count items were processed.", array(
+      '!count' => count($results),
+    ));
+    $message .= theme('item_list', array('items' => $results));
+    drupal_set_message($message);
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', array(
+      '%error_operation' => $error_operation[0],
+      '@arguments' => print_r($error_operation[1], TRUE),
+    ));
+    drupal_set_message($message, 'error');
+  }
+
+  foreach ($results as $result) {
+    $items[] = t('Loaded node %title.', array('%title' => $result));
+  }
+  $_SESSION['dallas_show_admin'] = $items;
+}
+
+
+// function dallas_show_admin_user_login(&$edit, $account) {
+//   echo '<pre>';
+//   print_r($edit);
+//   echo '</pre>';
+//   die();
+//   $edit['redirect'] = '';
+// }

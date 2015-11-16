@@ -1,0 +1,47 @@
+; $Id
+name        = HTML5 Base
+description = A base theme for making HTML5 sites. This theme requires the HTML5 Tools module. http://drupal.org/project/html5_tools.
+screenshot  = images/screenshot.png
+core        = 7.x
+
+
+; REGIONS
+; ------------------------------
+regions[header] = Header
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[footer] = Footer
+
+
+; CSS
+; ------------------------------
+stylesheets[all][]   = css/html.css
+stylesheets[all][]   = css/betterdrupal.css
+stylesheets[all][]   = css/layout.css
+stylesheets[print][] = css/print.css
+
+
+; FEATURES AND SETTINGS
+; ------------------------------
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = mission
+features[] = node_user_picture
+features[] = comment_user_picture
+features[] = search
+features[] = favicon
+features[] = primary_links
+features[] = secondary_links
+
+; Information added by drupal.org packaging script on 2013-09-30
+version = "7.x-2.x-dev"
+core = "7.x"
+project = "html5_base"
+datestamp = "1380582144"
+

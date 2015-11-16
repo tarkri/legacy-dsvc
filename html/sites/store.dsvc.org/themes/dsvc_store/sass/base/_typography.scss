@@ -1,0 +1,318 @@
+/* Page
+===========================================================================*/
+
+/*
+	Ems with Percents - CSS-Discuss Community
+	http://css-discuss.incutio.com/?page=UsingEms
+*/
+
+* {
+	@include box-sizing('border-box');
+}
+
+html {
+	font-size:   75%;    /* 12px relative to 16px */
+
+	font-family: $base-font;
+	color:            black;
+	background-color: $grey5;
+}
+
+.l-page {
+	color:            $grey2;
+	background-color: $white;
+}
+
+a {
+	&:link,
+	&:visited {
+		color: $grey2;
+	}
+
+	&:focus,
+	&:hover,
+	&:active {
+		color: $dark_blue;
+	}
+}
+
+ul, p {
+	a {
+		&:link,
+		&:visited {
+			color: $light_blue;
+		}
+
+		&:focus,
+		&:hover,
+		&:active {
+			color: $grey1;
+		}
+	}
+}
+
+/* Defaults
+===========================================================================*/
+
+/* Headings */
+
+h1 {
+	font-family: $serif-font;
+	font-size: 2.3333em; /* 28px relative to 12px */
+	line-height: 0.9642em; /* 27px relative to 28px */
+}
+
+h2 {
+	font-family: $serif-font;
+	font-size: 1.6666em; /* 20px relative to 12px */
+	line-height: 1.3em; /* 26px relative to 20px */
+}
+
+h3 {
+	font-size: 1.0833em; /* 13px relative to 12px */
+	line-height: 1.1538em; /* 15px relative to 13px */
+	font-weight: bold;
+}
+
+.wf-active {
+	h1 {
+		font-size: 2.1666em; /* 26px relative to 12px */
+		line-height: 1.0384em; /* 27px relative to 26px */
+		font-weight: normal;
+	}
+
+	h2 {
+		font-size: 1.6666em; /* 20px relative to 12px */
+		line-height: 1.3em; /* 26px relative to 20px */
+		font-weight: normal;
+	}
+
+	h3 {
+		font-size: 1.2499em; /* 15px relative to 12px */
+		line-height: 1.1333em; /* 17px relative to 15px */
+	}
+}
+
+/* Common Classes
+===========================================================================*/
+
+legend {
+	color: black; /* for IE, does not inherit color */
+}
+
+label,
+legend {
+	font-family: $base-font;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	color: $grey2;
+}
+
+.actions
+
+.wf-active {
+	.label-title {
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-weight: bold;
+	}
+}
+
+
+.actions {
+	li {
+		border-color: $grey4;
+
+		a {
+			font-size: 0.8333em; /* 10px relative to 12px */
+			line-height: 1.2em; /* 12px relative to 10px */
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: bold;
+
+			&:link,
+			&:visited {
+				color: $light_blue;
+			}
+
+			&:focus,
+			&:hover,
+			&:active {
+				background-color: $light_blue;
+				color: $white;
+			}
+		}
+	}
+}
+
+/* Content
+===========================================================================*/
+
+p a:visited {
+	font-style: italic;
+}
+
+.l-main {
+	p,
+	.xoxo {
+		font-family: $serif-font;
+		font-size: 1.3333em; /* 16px relative to 12px */
+		line-height: 1.3125em; /* 21px relative to 16px */
+	}
+
+	li p {
+		font-family: $base-font;
+		font-size: 1em;
+		line-height: 1.4999em; /* 18px relative to 12px */
+	}
+}
+
+/* Pagination
+===========================================================================*/
+
+.pager li {
+	color: $pager-color;
+	font-family: $base-font;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 2.0833em; /* 25px relative to 12px */
+
+	a {
+		font-weight: bold;
+		line-height: 1.9166em; /* 23px relative to 12px */
+
+		&:link,
+		&:visited {
+			color: $pager-color;
+			border-color: $pager-color;
+		}
+
+		&:focus,
+		&:hover,
+		&:active {
+			color: $white;
+			background-color: $pager-color;
+			border-color: $pager-color;
+		}
+	}
+
+	&.pager-current {
+		color: $white;
+		background-color: $dark-pager-color;
+		border-color: $dark-pager-color;
+	}
+
+	&.pager-key a {
+		font-weight: bold;
+		text-transform: uppercase;
+		letter-spacing: 1.5px;
+
+		&:link,
+		&:visited {
+			color: $pager-color;
+			border-color: $pager-color;
+		}
+
+		&:focus,
+		&:hover,
+		&:active {
+			color: $white;
+			background-color: $pager-color;
+			border-color: $pager-color;
+		}
+	}
+}
+
+/* Utility Navigation
+===========================================================================*/
+
+#utility-navigation {
+	li {
+		font-size: 0.8333em; /* 10px relative to 12px */
+	}
+
+	#welcome {
+		line-height: 1.5em; /* 15px relative to 10px */
+	}
+
+	#utility-navigation-logout,
+	#utility-navigation-edit-site,
+	#utility-navigation-admin-area {
+		line-height: 1.2em; /* 12px relative to 10px */
+	}
+
+	#utility-navigation-logout a,
+	#utility-navigation-edit-site a,
+	#utility-navigation-admin-area {
+		text-transform: lowercase;
+		text-decoration: none;
+	}
+}
+
+/* Primary Navigation
+===========================================================================*/
+
+#primary-navigation {
+	h2,
+	ul {
+		font-family: $base-font;
+		font-size: 0.8333em; /* 10px relative to 12px */
+		line-height: 1.2em; /* 12px relative to 10px */
+	}
+
+	h2 {
+		text-transform: uppercase;
+		font-weight: bold;
+		letter-spacing: 1px;
+		color: $grey2;
+		border-color: $grey4;
+	}
+
+	ul {
+		li {
+			line-height: 1.3333em; /* 16px relative to 12px */
+			color: $grey3;
+
+			a {
+				text-decoration: none;
+
+				&:link,
+				&:visited {
+					color: $grey2;
+				}
+
+				&:focus,
+				&:hover,
+				&:active {
+					color: $dark_blue;
+				}
+			}
+		}
+	}
+}
+
+.wf-active {
+	#primary-navigation {
+		h2,
+		ul {
+			font-size: 1em; /* 12px relative to 12px */
+			line-height: 1.3333em; /* 16px relative to 12px */
+		}
+	}
+}
+
+/* Footer
+===========================================================================*/
+
+.l-footer {
+	font-size: 0.8333em; /* 10px relative to 12px */
+	line-height: 1.2em; /* 12px relative to 10px */
+	border-color: $grey4;
+	background-color: $white;
+
+	a {
+		font-family: $base-font;
+		text-decoration: none;
+		font-style: normal;
+	}
+}

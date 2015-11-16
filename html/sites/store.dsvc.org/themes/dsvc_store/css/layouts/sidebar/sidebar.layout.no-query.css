@@ -1,0 +1,47 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\000036}}
+html body {
+  background-image: url("../../../images/background.gif");
+  background-repeat: repeat-y;
+  background-position: top center;
+  padding-bottom: 60px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\0000313}}
+.l-page {
+  margin: 0 auto;
+  width: 81.667em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\0000325}}
+.l-footer {
+  margin-top: 40px; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\0000329}}
+.l-main {
+  /* for IE 6/7 */
+  *zoom: expression(this.runtimeStyle.zoom="1", this.appendChild(document.createElement("br")).style.cssText="clear:both;font:0/0 serif");
+  /* non-JS fallback */
+  *zoom: 1; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/\.rvm\/gems\/ruby-2\.0\.0-p0\/gems\/singularitygs-1\.1\.2\/stylesheets\/singularitygs\/helpers\/_clearfix\.scss}line{font-family:\0000348}}
+  .l-main:before, .l-main:after {
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/\.rvm\/gems\/ruby-2\.0\.0-p0\/gems\/singularitygs-1\.1\.2\/stylesheets\/singularitygs\/helpers\/_clearfix\.scss}line{font-family:\0000355}}
+  .l-main:after {
+    clear: both; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\0000334}}
+.l-region--sidebar-first {
+  width: 23.72881%;
+  float: left;
+  margin-right: -100%;
+  margin-left: 0%;
+  clear: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/belshire\/Work\/Personal\/dsvc\.org\/sites\/store\.dsvc\.org\/themes\/dsvc_store\/sass\/layouts\/sidebar\/sidebar\.layout\.scss}line{font-family:\0000338}}
+.l-content {
+  width: 74.57627%;
+  float: right;
+  margin-left: 0;
+  margin-right: 0;
+  clear: none; }

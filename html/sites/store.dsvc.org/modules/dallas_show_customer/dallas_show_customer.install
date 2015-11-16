@@ -1,0 +1,17 @@
+<?php
+
+function dallas_show_customer_enable() {
+  commerce_customer_configure_customer_profile_type('dshow_profile');
+  commerce_order_configure_customer_profile_type('dshow_profile', 'Agency Information');
+}
+
+/**
+ * Update permission names for customer profile entity management.
+ */
+function dallas_show_customer_update_7005(&$sandbox) {
+  commerce_customer_configure_customer_profile_type('dshow_profile');
+  commerce_order_configure_customer_profile_type('dshow_profile', 'Agency Information');
+  $sandbox['#finished'] = TRUE;
+
+  return t('Enabled fields on the commerce customer profile type: Agency Information. Configured profile reference field on commerce_order');
+}

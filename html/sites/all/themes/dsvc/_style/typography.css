@@ -1,0 +1,679 @@
+/*===========================================================================
+	Typography (Global)
+
+	This stylesheet defines the text and font styles for the following:
+	* Type faces, sizes, leading (line-height), and kerning (letter-spacing).
+	* Font styles such as italics, bold, case transformations, etc.
+	* Underlining, including borders on inline elements simulating underlines.
+===========================================================================*/
+
+/*
+	Headings Glossary
+
+	Headers
+	H1: style - Times bold
+		size - 28px
+		leading - 27px
+		color - grey 2
+
+	H2: style - Times bold
+		size - 20px
+		leading - 26px
+		color - grey 2
+
+	H3: style - Verdana bold
+		size - 13px
+		leading - 15px
+		color - grey 2
+
+	Body Text
+	B1: style - Times regular
+		size - 16px
+		leading - 19px
+		color - grey 2
+
+	B2: style - Verdana regular
+		size - 12px
+		leading - 18px
+		color - grey 2
+
+	B3: style - Verdana regular
+		size - 10px
+		leading - 15px
+		color - grey 2
+
+	B4: style - Verdana bold
+		size - 10px
+		leading - 12px
+		color - grey 2
+
+	B5: style - Verdana regular
+		size - 10px
+		leading - 12px
+		color - grey 3
+
+	B6: style - Verdana regular
+		size - 10px
+		leading - 12px
+		color - grey 2
+
+	B7: Italic style - Verdana italic
+		size - 10px
+		leading - 12px
+		color - grey 2
+
+	B8: Italic style - Verdana bold italic
+		size - 13px
+		color - grey 2
+
+	B9: Italic style - Verdana italic
+		size - 12px
+		color - grey 2
+
+	B10: style - Verdana regular
+		 size - 10px
+		 leading - 25px
+		 color - grey 2
+
+	B11: forms style - Arial regular ALL CAPS
+		 size - 10px
+		 color - grey 2
+
+	B12: forms Italic style - Arial Italic
+		 size - 10px
+		 color - grey 2
+
+	B13: jobs page style - Verdana regular
+		 size - 10px
+		 leading - 18px
+		 color - grey 2
+
+	Form Error Fonts
+	E1: style - Times bold Italic
+		size - 20px
+		leading - 26px
+		color - red
+
+	E2: style - Verdana regular
+		size - 10px
+		leading - 12px
+		color - red
+
+	Links (see link.png)
+	L1: style - Arial bold ALL CAPS
+		size - 10px
+		leading - 12px
+		tracking - 100px
+		color - light blue rollover - light blue box | text white
+
+	L2: normal state - any body copy
+		rollover - dark blue
+
+	L3: any body copy - light blue
+		color rollover - grey 1
+		visited state - blue italic
+		visited rollover state - grey 1 italic
+
+	L4: Sidebar - grey 4
+		rollover - gradient back ground | text grey 5
+
+	L5: style - Times bold
+		size - 20px
+		color - grey 2
+		rollover - grey 1
+*/
+
+/* Page
+===========================================================================*/
+
+/*
+	Ems with Percents - CSS-Discuss Community
+	http://css-discuss.incutio.com/?page=UsingEms
+*/
+
+html {
+	font-size:   75%;    /* 12px relative to 16px */
+	line-height:  1.5em; /* 18px relative to 12px */
+
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, Helvetica, Tahoma, "Bitstream Vera Sans", sans-serif;
+}
+
+/* Defaults
+===========================================================================*/
+
+/* Headings */
+
+h1 {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 2.3333em; /* 28px relative to 12px */
+	line-height: 0.9642em; /* 27px relative to 28px */
+}
+
+h2 {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.6666em; /* 20px relative to 12px */
+	line-height: 1.3em; /* 26px relative to 20px */
+}
+
+.wf-active h1 {
+	font-size: 2.1666em; /* 26px relative to 12px */
+	line-height: 1.0384em; /* 27px relative to 26px */
+	font-weight: normal;
+}
+
+.wf-active h2 {
+	font-size: 1.6666em; /* 20px relative to 12px */
+	line-height: 1.3em; /* 26px relative to 20px */
+	font-weight: normal;
+}
+
+#secondary-content h2 {
+	font-size: 12px;
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, Helvetica, Tahoma, "Bitstream Vera Sans", sans-serif;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+
+#new-jobs h2 {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.6666em; /* 20px relative to 12px */
+	line-height: 1.3em; /* 26px relative to 20px */
+	font-weight: normal;
+}
+
+h2.comments {
+	line-height: 1em; /* 20px relative to 20px */
+}
+
+h3 {
+	font-size: 1.0833em; /* 13px relative to 12px */
+	line-height: 1.1538em; /* 15px relative to 13px */
+	font-weight: bold;
+}
+
+.wf-active h3 {
+	font-size: 1.2499em; /* 15px relative to 12px */
+	line-height: 1.1333em; /* 17px relative to 15px */
+}
+
+/* Forms */
+
+#primary-content form#contact-mail-page {
+	font-size: 1em;
+}
+
+#contact-mail-page label {
+	font-size: 0.8333em; /* 10px relative to 12px */
+}
+
+input,
+textarea,
+select,
+button {
+	font-size:   1.2em; /* 12px relative to 10px */
+	line-height: 1.5em; /* 18px relative to 12px */
+
+	font-family: Arial, Helvetica, Verdana, Tahoma, "Bitstream Vera Sans", sans-serif;
+}
+
+/* Common Classes
+===========================================================================*/
+
+label {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.actions a {
+	font-size: 0.8333em; /* 10px relative to 12px */
+	line-height: 1.2em; /* 12px relative to 10px */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+.wf-active .label-title {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+/* Content
+===========================================================================*/
+
+p a:visited {
+	font-style: italic;
+}
+
+#main-content p,
+#main-content .xoxo {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.3125em; /* 21px relative to 16px */
+}
+
+#main-content li p {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em;
+	line-height: 1.4999em; /* 18px relative to 12px */
+}
+
+/* Main Content
+===========================================================================*/
+
+#main-stories .first-child p {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.1875em; /* 19px relative to 16px */
+}
+
+#main-stories p {
+	font-size: 0.8333em; /* 10px relative to 12px */
+	line-height: 1.5em; /* 15px relative to 10px */
+}
+
+#main-stories h3 {
+	font-weight: bold;
+}
+
+.wf-active #main-stories .first-child p {
+	font-size: 1.2499em; /* 15px relative to 12px */
+	line-height: 1.3333em; /* 20px relative to 15px */
+}
+
+.wf-active #main-stories p {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+}
+
+/* Monthly Meetings
+===========================================================================*/
+
+.article-display p {
+	font-size:   0.8333em; /* 10px relative to 12px */
+	line-height: 1.5em; /* 15px relative to 10px */
+}
+
+.wf-active .article-display p {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+}
+
+ul#show-gallery li a.view-larger {
+	font-size: 0.8333em; /* 10px relative to 12px */
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#show-piece-meta ul li {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.1875em; /* 19px relative to 16px */
+}
+
+.wf-active #show-piece-meta ul li {
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.1875em; /* 19px relative to 16px */
+}
+
+#show-piece-meta a {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.8333em; /* 10px relative to 12px */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+ul#season-archives {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.8333em; /* 10px relative to 12px */
+}
+
+/* Individual Meeting
+===========================================================================*/
+
+#meeting p {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.3125em; /* 21px relative to 16px */
+}
+
+ul.working-lunch-meta li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+	text-transform: uppercase;
+}
+
+ul#event-metadata li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.6666em; /* 16px relative to 12px */
+	text-transform: uppercase;
+}
+
+ul.working-lunch-meta li abbr,
+ul.working-lunch-meta li span,
+ul#event-metadata li abbr,
+ul#event-metadata li span {
+	text-transform: none;
+}
+
+a#back-to-archive {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.8333em; /* 10px relative to 16px */
+	line-height: 2.5em; /* 25px relative to 10px */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+/* Comments
+===========================================================================*/
+
+.comment h3 {
+	font-style: italic;
+}
+
+form#comment-form ul.actions li {
+	font-style: italic;
+}
+
+p.logged-in {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+/* Job Listings
+===========================================================================*/
+
+#block-block-2 p {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+}
+
+td h3,
+.wf-active td h3 {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-weight: normal;
+  line-height: 21px;
+}
+
+div.view-job-board table tr td.views-field-php {
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+span.today {
+  font-weight: bold;
+}
+
+span.yesterday {
+
+}
+
+form#views-exposed-form-job-board-page-1 label,
+form#views-exposed-form-job-board-page-2 label {
+  font-size: 1.6em; /* 16px relative to 10px */
+  line-height: 1.5625em; /* 25px relative to 16px */
+}
+
+form#views-exposed-form-job-board-page-1 div.form-checkboxes label,
+form#views-exposed-form-job-board-page-2 div.form-checkboxes label {
+  font-size: 1em;
+  line-height: 1.2em;
+  font-weight: normal;
+}
+
+form#views-exposed-form-job-board-page-1 label input.type-text,
+form#views-exposed-form-job-board-page-2 label input.type-text {
+  font-size: 0.875em;
+}
+
+div.job ul#job-meta li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+}
+
+#meeting ul li,
+#how-to-apply ul li,
+#job-description ul li {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.1875em; /* 19px relative to 16px */
+}
+
+div.job-description a {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+}
+
+div.job p {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.1875em; /* 19px relative to 16px */
+}
+
+#job-meta p.members {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+}
+
+div.job p.members {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em;
+}
+
+#main-content ul.contact-list li p,
+li.vcard {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1.333em; /* 16px relative to 12px */
+}
+
+li.vcard h3 {
+	font-size: 1.0833em; /* 13px relative to 12px */
+}
+
+/* Professional Referrals
+===========================================================================*/
+
+#main-content.professional-referrals h3 {
+	font-family: "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2", Times, Georgia, serif;
+	font-size: 1.3333em; /* 16px relative to 12px */
+	line-height: 1.3125em; /* 21px relative to 16px */
+}
+
+/* Pagination
+===========================================================================*/
+
+ul.pager li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 2.0833em; /* 25px relative to 12px */
+}
+
+ul.pager li.pager-key a {
+  font-weight: bold;
+  text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+ul.pager li a {
+  font-weight: bold;
+	line-height: 1.9166em; /* 23px relative to 12px */
+}
+
+/* Secondary Content
+===========================================================================*/
+
+a.monthly-sponsor {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1em; /* 12px relative to 12px */
+}
+
+a.monthly-sponsor em {
+	font-weight: bold;
+	font-style: normal;
+}
+
+#new-jobs {
+	font-size: 1em; /* 12px relative to 12px */
+}
+
+#new-jobs em.note {
+	line-height: 1.2em; /* 12px relative to 10px */
+	font-weight: bold;
+}
+
+ul.post-metadata li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.9166em; /* 11px relative to 12px */
+	line-height: 1em; /* 11px relative to 11px */
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1.5px;
+}
+
+#new-jobs ul.utility-navigation li {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.9166em; /* 11px relative to 12px */
+	line-height: 1em; /* 11px relative to 11px */
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+ul.post-metadata li a,
+#new-jobs ul.utility-navigation li a {
+	text-decoration: none;
+}
+
+#new-jobs ul#job-list li a {
+	line-height: 1em;
+	text-decoration: none;
+}
+
+#new-jobs ul#job-list li a em {
+	font-style: normal;
+	font-weight: bold;
+}
+
+/* Utility Navigation
+===========================================================================*/
+
+ul#utility-navigation li {
+	font-size: 0.8333em; /* 10px relative to 12px */
+}
+
+ul#utility-navigation li#welcome {
+	line-height: 1.5em; /* 15px relative to 10px */
+}
+
+ul#utility-navigation li#utility-navigation-logout,
+ul#utility-navigation li#utility-navigation-edit-site,
+ul#utility-navigation li#utility-navigation-admin-area {
+	line-height: 1.2em; /* 12px relative to 10px */
+}
+
+ul#utility-navigation li#utility-navigation-logout a,
+ul#utility-navigation li#utility-navigation-edit-site a,
+ul#utility-navigation li#utility-navigation-admin-area {
+	text-transform: lowercase;
+	text-decoration: none;
+}
+
+/* Primary Navigation
+===========================================================================*/
+
+#primary-navigation h2,
+#primary-navigation ul {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+  font-size: 0.8333em; /* 10px relative to 12px */
+  line-height: 1.2em; /* 12px relative to 10px */
+}
+
+.wf-active #primary-navigation h2,
+.wf-active #primary-navigation ul {
+  font-size: 1em; /* 12px relative to 12px */
+  line-height: 1.3333em; /* 16px relative to 12px */
+}
+
+#primary-navigation h2 {
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+#primary-navigation ul li {
+	line-height: 1.3333em; /* 16px relative to 12px */
+}
+
+.js .is-windows #primary-navigation ul li {
+	letter-spacing: -1px;
+}
+
+#primary-navigation ul li a {
+	text-decoration: none;
+}
+
+/* Logo
+===========================================================================*/
+
+#custom-logo a#upcoming-meeting {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+  font-size: 0.8333em; /* 10px relative to 12px */
+  line-height: 1.2em; /* 12px relative to 10px */
+	text-decoration: none;
+}
+
+.wf-active #custom-logo a#upcoming-meeting {
+	font-size: 1em; /* 12px relative to 12px */
+	line-height: 1em; /* 16px relative to 12px */
+	text-decoration: none;
+}
+
+#custom-logo a#upcoming-meeting:visited {
+	font-style: normal;
+}
+
+#primary-content div.privacy-policy p {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	font-size: 0.8333em; /* 10px relative to 12px */
+	line-height: 1.5em; /* 15px relative to 10px */
+}
+
+/* Footer
+===========================================================================*/
+
+ul#site-credits li a#close-credits {
+	text-transform: uppercase;
+}
+
+ul#site-credits li,
+p#footer {
+	font-size: 0.8333em; /* 10px relative to 12px */
+	line-height: 1.2em; /* 12px relative to 10px */
+}
+
+p#footer a {
+	font-family: "ff-meta-web-pro-1","ff-meta-web-pro-2", Verdana, Arial, sans-serif;
+	text-decoration: none;
+	font-style: normal;
+}
+
+/* Past Presidents List
+===========================================================================*/
+#past-presidents-list h3 span {
+	font-weight: normal;
+	font-size: 0.7999em; /* 12px relative to 15px */
+}

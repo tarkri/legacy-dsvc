@@ -1,0 +1,5 @@
+name = Dallas Show Discount
+description = Enables discounts for the dallas show.
+dependencies[] = commerce
+package = Commerce (contrib)
+core = 7.x

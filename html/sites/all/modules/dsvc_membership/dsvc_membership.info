@@ -1,0 +1,8 @@
+name = DSVC Site Membership Module
+description = Module to control membership for DSVC site.
+package = Other
+core = 7.x
+dependencies[] = addressfield
+dependencies[] = edit_profile
+dependencies[] = user_field_privacy
+dependencies[] = rules

@@ -1,0 +1,1263 @@
+<?php
+
+set_include_path('.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear');
+require_once ('Services/Capsule.php');
+require_once ('includes/dsvc_membership.inc');
+
+function dsvc_membership_menu() {
+	$items = array();
+
+	$items['resources/membership'] = array(
+		'title' => t('Find My Membership'),
+		'type' => MENU_NORMAL_ITEM,
+		'page callback' => 'dsvc_membership_find',
+		'access callback' => 'dsvc_membership_access',
+		'menu_name' => 'menu-resources'
+	);
+
+	$items['resources/membership/found'] = array(
+		'title' => t('Membership'),
+		'type' => MENU_CALLBACK,
+		'page callback' => 'dsvc_membership_found',
+		'access callback' => 'dsvc_membership_access',
+	);
+
+	$items['membership/associate/%'] = array(
+		'title' => t('Membership'),
+		'type' => MENU_CALLBACK,
+		'page callback' => 'dsvc_membership_associate_account',
+		'page arguments' => array(2),
+		'access callback' => 'dsvc_membership_access',
+	);
+
+	$items['membership/build/%'] = array(
+		'title' => t('Membership'),
+		'type' => MENU_LOCAL_TASK,
+		'page callback' => 'dsvc_membership_build_account',
+		'page arguments' => array(2),
+		'access callback' => 'dsvc_membership_access',
+	);
+
+	$items['membership/test/update'] = array(
+		'title' => t('Membership'),
+		'type' => MENU_NORMAL_ITEM,
+		'page callback' => 'dsvc_membership_test_update',
+		'access callback' => 'dsvc_membership_access',
+	);
+
+	$items['member/%user/membership'] = array(
+		'title' => t('Membership'),
+		'type' => MENU_LOCAL_TASK,
+		'page callback' => 'dsvc_membership_find',
+		'access callback' => 'dsvc_membership_user_edit_access',
+		'access arguments' => array(1),
+	);
+
+	$items['member-api/lookup'] = array(
+		'access callback'   => true,
+    'page callback'     => 'dsvc_membership_member_lookup',
+    'delivery callback' => 'drupal_json_output'
+	);
+
+	return $items;
+}
+
+function dsvc_membership_access() {
+	return true;
+}
+
+function dsvc_membership_init() {
+	drupal_add_css(drupal_get_path('module', 'dsvc_membership') . '/css/dsvc_membership.css');
+	drupal_add_js(drupal_get_path('module', 'dsvc_membership') . '/js/dsvc_membership.js');
+}
+
+function dsvc_membership_user_edit_access($account) {
+	global $user;
+	return (($user->uid == $account->uid) || user_access('administer users')) && $account->uid > 0 && !array_search("dsvc member", $account->roles);
+}
+
+function dsvc_membership_find() {
+	$output = '<section class="membership-step one">';
+	$output .= "<h1>Find Your Membership</h1>";
+	$output .= "<p>Fill out any of the form fields below and we’ll do our best to find your informaton in our current membership database. Currently this feature is only available for Regular, Junior, and Student memberships. Sustaining, Corporate, and Institutional memberships are not supported at this time.</p>";
+	$output .= "<p>If you already have a user account for the site please <a href='/modal/nojs/login' class='ctools-use-modal ctools-modal-dsvc-modal ctools-use-modal-processed'>login first</a>.</p>";
+	$output .= drupal_render(drupal_get_form('dsvc_membership_find_membership_form'));
+	$output .= "</section>";
+	return $output;
+}
+
+function dsvc_membership_find_membership_form() {
+	$form['email'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Email Address (optional)'),
+	);
+	$form['first_name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('First Name'),
+	);
+	$form['last_name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Last Name'),
+	);
+	$form['submit'] = array(
+		'#type' => 'submit',
+		'#default_value' => t('Find Membership Information'),
+	);
+
+	return $form;
+}
+
+function dsvc_membership_member_lookup() {
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$filter = array();
+
+	if (!empty($_GET['email'])) {
+		$filter['email'] = $_GET['email'];
+	}
+
+	if (!empty($_GET["first_name"])) {
+		$filter['q'] = $_GET['first_name'];
+	}
+
+	if (!empty($_GET["last_name"]) && !empty($_GET["first_name"])) {
+		$filter['q'] .= ' ' . $_GET['last_name'];
+	}
+
+	if (!empty($_GET["last_name"]) && empty($_GET["first_name"])) {
+		$filter['q'] = $_GET['last_name'];
+	}
+
+	return $capsule->party->getAny($filter);
+}
+
+function dsvc_membership_find_membership_form_submit($form_id, &$form_state) {
+	$values = $form_state['values'];
+	// Find name in member table, check addresses given versus company and mailing address
+
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$filter = array();
+
+	if (!empty($values['email'])) {
+		$filter['email'] = $values['email'];
+	}
+
+	if (!empty($values["first_name"])) {
+		$filter['q'] = $values['first_name'];
+	}
+
+	if (!empty($values["last_name"]) && !empty($values["first_name"])) {
+		$filter['q'] .= ' ' . $values['last_name'];
+	}
+
+	if (!empty($values["last_name"]) && empty($values["first_name"])) {
+		$filter['q'] = $values['last_name'];
+	}
+
+	$members = $capsule->party->getAny($filter);
+
+	if ($members->parties->{'@size'} > 0) {
+		if (is_object($members->parties->person)) {
+			$members->parties->person->customFields = $capsule->party->customfield->getAll($members->parties->person->id, 'customfields')->customFields;
+
+			if ($members->parties->person->customFields->{'@size'} > 0) {
+				foreach ($members->parties->person->customFields->customField as $customField) {
+					$type = str_replace(' ', '_', strtolower($customField->label));
+					if (property_exists ($customField, 'text')) {
+						$members->parties->person->{$type} = $customField->text;
+					}
+					else {
+						$date = new DateTime($customField->date);
+						$members->parties->person->{$type} = $date->format('Y-m-d H:i:s');
+					}
+				}
+			}
+			else {
+				$members->parties->person->member_expires = new DateTime('2000-01-01');
+				$members->parties->person->membership_type = "Regular";
+				$members->parties->person->status = 'active';
+				$members->parties->person->drupal_id = null;
+			}
+
+			$_SESSION['dsvc_membership']['sugar_contacts'] = array($members->parties->person);
+		}
+		else {
+			foreach ($members->parties->person as $index => $member) {
+				$members->parties->person[$index]->customFields = $capsule->party->customfield->getAll($members->parties->person[$index]->id, 'customfields')->customFields;
+
+				if ($members->parties->person[$index]->customFields->{'@size'} > 0) {
+					foreach ($members->parties->person[$index]->customFields->customField as $customField) {
+						$type = str_replace(' ', '_', strtolower($customField->label));
+						if (property_exists ($customField, 'text')) {
+							$members->parties->person[$index]->{$type} = $customField->text;
+						}
+						else {
+							$date = new DateTime($customField->date);
+							$members->parties->person[$index]->{$type} = $date->format('Y-m-d H:i:s');
+						}
+					}
+				}
+				else {
+					$members->parties->person[$index]->membership_type = "Regular";
+					$members->parties->person[$index]->status = 'active';
+					$members->parties->person[$index]->member_expires = new DateTime('2000-01-01');
+					$members->parties->person[$index]->drupal_id = null;
+				}
+			}
+
+			$_SESSION['dsvc_membership']['sugar_contacts'] = $members->parties->person;
+		}
+		drupal_goto('resources/membership/found');
+	}
+	else {
+    form_set_error('form', t('We could not find your information in our database, you are either not a current DSVC member or our records for you are incomplete (hint: try the form without an email address, we probably don\'t have it on file). To resolve either of these issues, call our club secretary Heather at 214-810-DSVC or email her at <a href="mailto:heather@dsvc.org">heather@dsvc.org</a>.'));
+    $form_state['redirect'] = FALSE; //To prevent Drupal from cleaning the form
+	}
+}
+
+function dsvc_membership_found() {
+	global $user;
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$members = $_SESSION['dsvc_membership']['sugar_contacts'];
+	$num_members = count($members);
+	$current_date = new DateTime(date('Y-m-d'));
+
+	$output = '<section class="membership-step two">';
+	$output .= '<a class="goback button" href="/resources/membership">< Go Back</a>';
+	$output .= "<h1>Select Your Information</h1>";
+	$output .= "<p>We found the following records for the information you gave. Please select your information to move on.</p>";
+
+	$output .= '<div class="members-list">';
+
+	foreach ($members as $index => $member) {
+		$member_expires = new DateTime($member->member_expires);
+		$old_member_expires = new DateTime('2010-1-1');
+
+		$status = 'active';
+		$output .= '<div class="contact">';
+
+		if (!empty($member->drupal_id)) {
+			$status = 'associated';
+		}
+		else if ($current_date > $member_expires) {
+			$status = 'expired';
+		}
+
+		if ($member->membership_type === "Honorary") {
+			$status = 'active';
+		}
+
+		if ($status == 'active') {
+			$output .= '<h2 class="fname">'.$member->firstName.' '.$member->lastName.'</h2>';
+
+			if (!empty($member->contacts->email->emailAddress)) {
+				$output .= '<p class="email">'.$member->contacts->email->emailAddress.'</p>';
+			}
+			else {
+				$output .= '<p class="email">No email address on file</p>';
+			}
+			if ($user->uid) {
+				$output .= '<a href="/membership/associate/'.$index.'" class="associate button">This is me</a>';
+			}
+			else {
+				$output .= '<a href="/membership/build/'.$index.'" class="associate button">This is me</a>';
+			}
+		}
+		else if ($status === 'associated') {
+			$output .= '<p>The membership information found has already been associated with an account.</p>';
+		}
+		else if ($status === 'expired') {
+			$output .= '<h2 class="fname">'.$member->firstName.' '.$member->lastName.'</h2>';
+
+			if (!empty($member->contacts->email->emailAddress)) {
+				$output .= '<p class="email">'.$member->contacts->email->emailAddress.'</p>';
+			}
+			else {
+				$output .= '<p class="email">No email address on file</p>';
+			}
+
+			$output .= '<a href="https://store.dsvc.org/membership/renewal?first_name='.$member->firstName.'&last_name='.$member->lastName.'&email='.$member->contacts->email->emailAddress.'&member_id='.$member->id.'" class="associate button">Renew Membership</a>';
+
+			$output .= '<p>This information above is what we have on file and our records show your membership has expired.</p>
+									<p>If you feel this is a mistake and you have renewed in the last 12 months, <a href="mailto:heather@dsvc.org">email us</a> or call 214-810-DSVC.</p>
+									<p>If you need to renew <a href="https://store.dsvc.org/membership/renewal?first_name='.$member->firstName.'&last_name='.$member->lastName.'&email='.$member->contacts->email->emailAddress.'&member_id='.$member->id.'">click here</a>.</p>';
+		}
+
+		$output .= '</div>';
+	}
+
+	$output .= '</div>';
+
+	if ($num_members > 1) {
+		$output .= '<p>If there is more than one copy of your name, choose the one with your current email address. We’ll delete the other records.</p>';
+	}
+
+	$output .= '<p>If you don’t see your name above, you are either not a current DSVC member or our records for you are incomplete. To resolve either of these issues, call our club secretary Heather at 214-810-DSVC or email her at <a href="mailto:heather@dsvc.org">heather@dsvc.org</a>.</p>';
+
+	$output .= '</section>';
+	return $output;
+}
+
+function dsvc_membership_build_account($member_index) {
+	$_SESSION['dsvc_membership']['member'] = $member = $_SESSION['dsvc_membership']['sugar_contacts'][$member_index];
+	$output = '<section class="membership-step three">';
+	$output .= '<a class="goback button" href="/resources/membership/found">< Go Back</a>';
+	$output .= "<h1>Create Your Online Account</h1>";
+	$output .= "<p>This is how you will long into your membership account from now on. It's also how DSVC will get in touch with you in the future.</p>";
+	$output .= drupal_render(drupal_get_form('dsvc_membership_build_user_form'));
+	$output .= "</section>";
+
+	return $output;
+}
+
+function dsvc_membership_build_user_form() {
+	$member = $_SESSION['dsvc_membership']['member'];
+
+	$form['#user'] = drupal_anonymous_user();
+	$form['#user_category'] = 'register';
+
+	$form['#attached']['library'][] = array('system', 'jquery.cookie');
+	$form['#attributes']['class'][] = 'user-info-from-cookie';
+
+	$form['account']['name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Username'),
+		'#maxlength' => USERNAME_MAX_LENGTH,
+		'#description' => t('Spaces are allowed; punctuation is not allowed except for periods, hyphens, apostrophes, and underscores.'),
+		'#required' => TRUE,
+		'#attributes' => array('class' => array('username'))
+	);
+
+	$form['account']['mail'] = array(
+		'#type' => 'textfield',
+		'#title' => t('E-mail address'),
+		'#maxlength' => EMAIL_MAX_LENGTH,
+		'#description' => t('A valid e-mail address. All e-mails from the system will be sent to this address. The e-mail address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by e-mail.'),
+		'#default_value' => !empty($member->contacts->email)	 ? $member->contacts->email->emailAddress : '',
+		'#required' => TRUE,
+	);
+
+	if (!empty($member->contacts->email)) {
+		$form['crm_email_id'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->contacts->email->id,
+		);
+	}
+
+	$form['account']['pass'] = array(
+		'#type' => 'password_confirm',
+		'#size' => 25,
+		'#description' => t('Provide a password for the new account in both fields.'),
+		'#required' => TRUE,
+	);
+
+	$form['first_name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('First Name'),
+		'#default_value' => isset($member->firstName) ? $member->firstName : '',
+	);
+
+	$form['last_name'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Last Name'),
+		'#default_value' => isset($member->lastName) ? $member->lastName : '',
+	);
+
+	if (
+		empty($member->jobTitle) ||
+		empty($member->organisationName) ||
+		empty($member->contacts->phone) ||
+		empty($member->contacts->address)
+	) {
+		$form['additional_info'] = array(
+  		'#markup' => "<div class='additional-info'><h2>Additional Profile Information</h2><p>We don't have the following information on file for you.</p></div>",
+		);
+	}
+
+	if (empty($member->jobTitle)) {
+		$form['title'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Job Title')
+		);
+	}
+	else {
+		$form['title'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->jobTitle,
+		);
+	}
+
+	if (empty($member->organisationName)) {
+		$form['employer'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Employer')
+		);
+	}
+	else {
+		$form['employer'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->organisationName,
+		);
+	}
+
+	if (empty($member->contacts->phone)) {
+		$form['primary_phone'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Phone'),
+		);
+	}
+	else {
+		$form['primary_phone'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->contacts->phone->phoneNumber,
+		);
+
+		$form['crm_phone_id'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->contacts->phone->id,
+		);
+	}
+
+	if (empty($member->contacts->address)) {
+		$form['primary_address'] = array(
+			'#type' => 'fieldset',
+			'#title' => t('Address'),
+			'#attributes' => array('class' => array('field-type-addressfield')),
+		);
+
+		$form['primary_address']['pa_thoroughfare'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Street'),
+		);
+
+		$form['primary_address']['pa_locality'] = array(
+			'#type' => 'textfield',
+			'#title' => t('City'),
+		);
+
+		$form['primary_address']['pa_administrative_area'] = array(
+			'#type' => 'select',
+			'#title' => t('State'),
+			'#default_value' => 'TX',
+			'#options' => dsvc_membership_options_united_states(),
+		);
+
+		$form['primary_address']['pa_postal_code'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Zip Code'),
+		);
+	}
+	else {
+		$form['crm_address_id'] = array(
+			'#type' => 'hidden',
+			'#default_value' => $member->contacts->address->id,
+		);
+	}
+
+	$form['sugar_id'] = array(
+		'#type' => 'hidden',
+		'#default_value' => $member->id,
+	);
+
+	$new_member_since_date = new DateTime();
+	$form['member_since'] = array(
+		'#type' => 'hidden',
+		'#default_value' => isset($member->member_since) ? $member->member_since : $new_member_since_date->format('Y-m-d H:i:s')
+	);
+
+	$form['membership_type'] = array(
+		'#type' => 'hidden',
+		'#default_value' => $member->membership_type,
+	);
+
+	$form['member_expires'] = array(
+		'#type' => 'hidden',
+		'#default_value' => $member->member_expires,
+	);
+
+	$form['submit'] = array(
+		'#type' => 'submit',
+		'#value' => t('Create my account'),
+	);
+
+	return $form;
+}
+
+function dsvc_membership_build_user_form_validate($form, &$form_state) {
+	$account = $form['#user'];
+
+	if (isset($form_state['values']['name'])) {
+		if ($error = user_validate_name($form_state['values']['name'])) {
+			form_set_error('name', $error);
+		}
+		elseif ((bool) db_select('users')->fields('users', array('uid'))->condition('uid', $account->uid, '<>')->condition('name', db_like($form_state['values']['name']), 'LIKE')->range(0, 1)->execute()->fetchField()) {
+			form_set_error('name', t('The name %name is already taken.', array('%name' => $form_state['values']['name'])));
+		}
+	}
+
+	$mail = trim($form_state['values']['mail']);
+	form_set_value($form['account']['mail'], $mail, $form_state);
+
+	if ($error = user_validate_mail($form_state['values']['mail'])) {
+		form_set_error('mail', $error);
+	}
+	elseif ((bool) db_select('users')->fields('users', array('uid'))->condition('uid', $account->uid, '<>')->condition('mail', db_like($form_state['values']['mail']), 'LIKE')->range(0, 1)->execute()->fetchField()) {
+		// Format error message dependent on whether the user is logged in or not.
+		if ($GLOBALS['user']->uid) {
+			form_set_error('mail', t('The e-mail address %email is already taken.', array('%email' => $form_state['values']['mail'])));
+		}
+		else {
+			form_set_error('mail', t('The e-mail address %email is already registered. <a href="@password">Have you forgotten your password?</a>', array('%email' => $form_state['values']['mail'], '@password' => url('user/password'))));
+		}
+	}
+}
+
+function dsvc_membership_build_user_form_submit($form_id, &$form_state) {
+	$values = $form_state['values'];
+	$member = $_SESSION['dsvc_membership']['member'];
+	$capsule_edit = array();
+
+	$new_account['name'] = $values['name'];
+	$new_account['pass'] = $values['pass'];
+
+	// Email
+	$new_account['mail'] = isset($values['mail']) ? $values['mail'] : $member->contacts->email->emailAddress;
+	$new_account['field_email'][LANGUAGE_NONE][0]['value'] = isset($values['mail']) ? $values['mail'] : $member->contacts->email->emailAddress;
+	if (empty($member->contacts->email->emailAddress)) {
+		$capsule_edit['contacts']['email']['emailAddress'] = $values['mail'];
+	}
+
+	// First Name
+	$new_account['field_first_name'][LANGUAGE_NONE][0]['value'] = isset($values['first_name']) ? $values['first_name'] : $member->firstName;
+	if (empty($member->firstName)) {
+		$capsule_edit['firstName'] = $values['first_name'];
+	}
+
+	// Last Name
+	$new_account['field_last_name'][LANGUAGE_NONE][0]['value'] = isset($values['last_name']) ? $values['last_name'] : $member->lastName;
+	if (empty($member->lastName)) {
+		$capsule_edit['lastName'] = $values['last_name'];
+	}
+
+	// Job Title
+	$new_account['field_job_title'][LANGUAGE_NONE][0]['value'] = isset($values['title']) ? $values['title'] : $member->jobTitle;
+	if (empty($member->jobTitle)) {
+		$capsule_edit['jobTitle'] = $values['title'];
+	}
+
+	// Employer
+	$new_account['field_employer'][LANGUAGE_NONE][0]['value'] = isset($values['employer']) ? $values['employer'] : $member->organisationName;
+	if (empty($member->organisationName)) {
+		$capsule_edit['organisationName'] = $values['employer'];
+	}
+
+	// Primary Address
+	$new_account['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'] = isset($values['pa_thoroughfare']) ? $values['pa_thoroughfare'] : $member->contacts->address->street;
+	$new_account['field_primary_address'][LANGUAGE_NONE][0]['locality'] = isset($values['pa_locality']) ? $values['pa_locality'] : $member->contacts->address->city;
+	$new_account['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'] = isset($values['pa_administrative_area']) ? $values['pa_administrative_area'] : $member->contacts->address->state;
+	$new_account['field_primary_address'][LANGUAGE_NONE][0]['postal_code'] = isset($values['pa_postal_code']) ? $values['pa_postal_code'] : $member->contacts->address->zip;
+	$new_account['field_primary_address'][LANGUAGE_NONE][0]['country'] = 'US';
+
+	if (isset($values['pa_thoroughfare']) || isset($values['pa_locality']) || isset($values['pa_locality']) || isset($values['pa_administrative_area']) || isset($values['pa_postal_code'])) {
+		$capsule_edit['contacts']['address']['type'] = 'home';
+		$capsule_edit['contacts']['address']['street'] = $values['pa_thoroughfare'];
+		$capsule_edit['contacts']['address']['city'] = $values['pa_locality'];
+		$capsule_edit['contacts']['address']['state'] = $values['pa_administrative_area'];
+		$capsule_edit['contacts']['address']['zip'] = $values['pa_postal_code'];
+		$capsule_edit['contacts']['address']['country'] = 'United States';
+	}
+
+	// Primary Phone
+	$new_account['field_primary_phone'][LANGUAGE_NONE][0]['value'] = isset($values['primary_phone']) ? $values['primary_phone'] : $member->contacts->phone->phoneNumber;
+	if (empty($member->contacts->phone)) {
+		$capsule_edit['contacts']['phone']['phoneNumber'] = $values['primary_phone'];
+	}
+
+	// Member Since, Membership Type, Membership Expires, Sugar ID
+	$new_account['field_dsvc_member_since'][LANGUAGE_NONE][0]['value'] = $values['member_since'];
+	$new_account['field_dsvc_membership_type'][LANGUAGE_NONE][0]['value'] = $values['membership_type'];
+	$new_account['field_dsvc_membership_expires'][LANGUAGE_NONE][0]['value'] = $values['member_expires'];
+	$new_account['field_sugar_id'][LANGUAGE_NONE][0]['value'] = $values['sugar_id'];
+
+	if (isset($values['crm_address_id'])) {
+		$new_account['field_crm_address_id'][LANGUAGE_NONE][0]['value'] = $values['crm_address_id'];
+	}
+
+	if (isset($values['crm_email_id'])) {
+		$new_account['field_crm_email_id'][LANGUAGE_NONE][0]['value'] = $values['crm_email_id'];
+	}
+
+	if (isset($values['crm_phone_id'])) {
+		$new_account['field_crm_phone_id'][LANGUAGE_NONE][0]['value'] = $values['crm_phone_id'];
+	}
+
+	// Set Role as dsvc member, activate account
+	$new_account['roles'] = array(DRUPAL_AUTHENTICATED_RID => TRUE, 4 => TRUE);
+	$new_account['status'] = 1;
+
+	// Save user
+	$account = user_save(null, $new_account, 'register');
+
+	$fields = array(
+		'field_email',
+		'field_job_title',
+		'field_employer',
+		'field_primary_phone',
+		'field_primary_address',
+	);
+
+	_dsvc_membership_set_private_fields($fields, $account);
+
+	// Set the association with the drupal account in SugarCRM
+	if ($account->uid > 1) {
+		$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+		$capsule->party->customfield->add($member->id, array("label" => "Drupal ID", "text" => $account->uid));
+		$saved_person = $capsule->person->update($member->id, $capsule_edit);
+
+		if (empty($values['crm_address_id']) || empty($values['crm_email_id']) || empty($values['crm_phone_id'])) {
+			$edit_account = array();
+
+			if (!empty($saved_person->person->contacts)) {
+				foreach ($saved_person->person->contacts as $type => $value) {
+					if (in_array($type, array('email', 'address', 'phone'))) {
+						$edit_account['field_crm_'.$type.'_id'][LANGUAGE_NONE][0]['value'] = $value->id;
+					}
+				}
+			}
+
+			user_save($account, $edit_account, 'register');
+		}
+	}
+
+	unset($_SESSION['dsvc_membership']);
+
+	drupal_set_message("Your user account has been created.");
+	drupal_goto("user");
+}
+
+function _dsvc_membership_set_private_fields($fields, $account) {
+	$field_ids = array();
+
+	foreach ($fields as $field) {
+		$field_info = field_info_field($field);
+		$field_ids[] = $field_info['id'];
+	}
+
+	foreach ($field_ids as $field_id) {
+    db_merge('user_field_privacy_value')
+      ->key(array(
+        'fid' => $field_id,
+        'uid' => $account->uid,
+      ))
+      ->fields(array('private' => 1))
+      ->execute();
+  }
+}
+
+function dsvc_membership_associate_account($member_index) {
+	global $user;
+	$account = $user->uid ? user_load($user->uid) : NULL;
+	$member = $_SESSION['dsvc_membership']['sugar_contacts'][$member_index];
+
+	if ($account) {
+		dsvc_membership_user_fields_associate($member, $account);
+
+		unset($_SESSION['dsvc_membership']);
+
+		drupal_set_message("Your user account has been associated with your DSVC membership.");
+		drupal_goto("user");
+	}
+}
+
+function dsvc_membership_user_fields_associate($member, $account) {
+	$edit_account = array();
+
+	if (!is_object($member)) {
+		$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+		$member = $capsule->party->get($member);
+		$member = $member->person;
+		$member->customFields = $capsule->party->customfield->getAll($member->id, 'customfields')->customFields;
+
+		if ($member->customFields->{'@size'} > 0) {
+			foreach ($member->customFields->customField as $customField) {
+				$type = str_replace(' ', '_', strtolower($customField->label));
+				if (property_exists ($customField, 'text')) {
+					$member->{$type} = $customField->text;
+				}
+				else {
+					$date = new DateTime($customField->date);
+					$member->{$type} = $date->format('Y-m-d H:i:s');
+				}
+			}
+		}
+		else {
+			$member->member_expires = new DateTime('2000-01-01');
+			$member->membership_type = "Regular";
+			$member->status = 'active';
+			$member->drupal_id = null;
+		}
+	}
+
+	// Email
+	if (empty($account->field_email[LANGUAGE_NONE][0]['value']) && !empty($member->contacts->email)) {
+		$edit_account['field_email'][LANGUAGE_NONE][0]['value'] = $member->contacts->email->emailAddress;
+		$edit_account['field_crm_email_id'][LANGUAGE_NONE][0]['value'] = $member->contacts->email->id;
+	}
+
+	// First Name
+	if (empty($account->field_first_name[LANGUAGE_NONE][0]['value']) && !empty($member->firstName)) {
+		$edit_account['field_first_name'][LANGUAGE_NONE][0]['value'] = $member->firstName;
+	}
+
+	// Last Name
+	if (empty($account->field_last_name[LANGUAGE_NONE][0]['value']) && !empty($member->lastName)) {
+		$edit_account['field_last_name'][LANGUAGE_NONE][0]['value'] = $member->lastName;
+	}
+
+	// Job Title
+	if (empty($account->field_job_title[LANGUAGE_NONE][0]['value']) && !empty($member->jobTitle)) {
+		$edit_account['field_job_title'][LANGUAGE_NONE][0]['value'] = $member->jobTitle;
+	}
+
+	// Employer
+	if (empty($account->field_employer[LANGUAGE_NONE][0]['value']) && !empty($member->organisationName)) {
+		$edit_account['field_employer'][LANGUAGE_NONE][0]['value'] = $member->organisationName;
+	}
+
+	// Primary Address
+	$edit_account['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'] = empty($account->field_work_address[LANGUAGE_NONE][0]['thoroughfare']) ? $member->contacts->address->street : $account->field_work_address[LANGUAGE_NONE][0]['thoroughfare'];
+	$edit_account['field_primary_address'][LANGUAGE_NONE][0]['locality'] = empty($account->field_work_address[LANGUAGE_NONE][0]['locality']) ? $member->contacts->address->city : $account->field_work_address[LANGUAGE_NONE][0]['locality'];
+	$edit_account['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'] = empty($account->field_work_address[LANGUAGE_NONE][0]['administrative_area']) ? $member->contacts->address->state : $account->field_work_address[LANGUAGE_NONE][0]['administrative_area'];
+	$edit_account['field_primary_address'][LANGUAGE_NONE][0]['postal_code'] = empty($account->field_work_address[LANGUAGE_NONE][0]['postal_code']) ? $member->contacts->address->zip : $account->field_work_address[LANGUAGE_NONE][0]['postal_code'];
+	$edit_account['field_primary_address'][LANGUAGE_NONE][0]['country'] = 'US';
+
+	if (empty($account->field_crm_address_id[LANGUAGE_NONE][0]['value']) && !empty($member->contacts->address)) {
+		$edit_account['field_crm_address_id'][LANGUAGE_NONE][0]['value'] = $member->contacts->address->id;
+	}
+
+	// Primary Phone
+	if (empty($account->field_primary_phone[LANGUAGE_NONE][0]['value']) && !empty($member->contacts->phone)) {
+		$edit_account['field_primary_phone'][LANGUAGE_NONE][0]['value'] = $member->contacts->phone->phoneNumber;
+		$edit_account['field_crm_phone_id'][LANGUAGE_NONE][0]['value'] = $member->contacts->phone->id;
+	}
+
+	// Member Since
+	if (empty($account->field_dsvc_member_since[LANGUAGE_NONE][0]['value']) && !empty($member->member_since)) {
+		$edit_account['field_dsvc_member_since'][LANGUAGE_NONE][0]['value'] = $member->member_since;
+	}
+
+	// Membership Type
+	if (empty($account->field_dsvc_membership_type[LANGUAGE_NONE][0]['value']) && !empty($member->membership_type)) {
+		$edit_account['field_dsvc_membership_type'][LANGUAGE_NONE][0]['value'] = $member->membership_type;
+	}
+
+	// Membership Expires
+	if (empty($account->field_dsvc_membership_expires[LANGUAGE_NONE][0]['value']) && !empty($member->member_expires)) {
+		$edit_account['field_dsvc_membership_expires'][LANGUAGE_NONE][0]['value'] = $member->member_expires;
+	}
+
+	// Sugar ID
+	if (empty($account->field_sugar_id[LANGUAGE_NONE][0]['value']) && !empty($member->id)) {
+		$edit_account['field_sugar_id'][LANGUAGE_NONE][0]['value'] = $member->id;
+	}
+
+	if ($user->uid > 1) {
+		$edit_account['roles'] = array(DRUPAL_AUTHENTICATED_RID => TRUE, 4 => TRUE);
+		$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+		$capsule->party->customfield->add($member->id, array("label" => "Drupal ID", "text" => $account->uid));
+	}
+
+	$fields = array(
+		'field_email',
+		'field_job_title',
+		'field_employer',
+		'field_primary_phone',
+		'field_primary_address',
+	);
+
+	_dsvc_membership_set_private_fields($fields, $account);
+	user_save($account, $edit_account);
+}
+
+function dsvc_membership_form_user_profile_form_alter(&$form, &$form_state) {
+	$form['field_email'][LANGUAGE_NONE][0]['value']['#description'] = t('Change your email address on the <a href="/user/'.arg(1).'/edit">Edit Account</a> page');
+	return $form;
+}
+
+function dsvc_membership_user_presave(&$edit, $account, $category) {
+	if (isset($account->mail) && isset($edit['mail']) || empty($account->field_email[LANGUAGE_NONE])) {
+		if ($edit['mail'] != $account->mail) {
+			$capsule_edit['contacts']['email']['emailAddress'] = $edit['mail'];
+			$edit['field_email'][LANGUAGE_NONE][0]['value'] = $edit['mail'];
+		}
+	}
+
+		//////////////////////
+	// Fields to Update //
+	//////////////////////
+
+	// Mobile Phone  | phone_mobile
+
+	$original = $account;
+	$capsule_edit = array();
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$edit_no_id = array();
+
+	if (!empty($original->field_sugar_id[LANGUAGE_NONE])) {
+		// Email Address | email1
+		if (isset($original->mail) && isset($edit['mail'])) {
+			if ($edit['mail'] != $original->mail) {
+				if (!empty($original->field_crm_email_id)) {
+					$capsule_edit['contacts']['email']['id'] = $original->field_crm_email_id[LANGUAGE_NONE][0]['value'];
+				}
+				else {
+					$edit_no_id[] = 'email';
+				}
+
+				$capsule_edit['contacts']['email']['emailAddress'] = $edit['mail'];
+			}
+		}
+
+		// First Name    | first_name
+		if (empty($edit['field_first_name'][LANGUAGE_NONE])) {
+			$capsule_edit['firstName'] = "";
+		}
+		else {
+			$capsule_edit['firstName'] = $edit['field_first_name'][LANGUAGE_NONE][0]['value'];
+		}
+
+		// Last Name     | last_name
+		if (empty($edit['field_last_name'][LANGUAGE_NONE])) {
+			$capsule_edit['lastName'] = "";
+		}
+		else if (empty($original->field_last_name) && !empty($edit['field_last_name'][LANGUAGE_NONE])) {
+			$capsule_edit['lastName'] = $edit['field_last_name'][LANGUAGE_NONE][0]['value'];
+		}
+		else if ($edit['field_last_name'][LANGUAGE_NONE][0]['value'] != $original->field_last_name[LANGUAGE_NONE][0]['value']) {
+			$capsule_edit['lastName'] = $edit['field_last_name'][LANGUAGE_NONE][0]['value'];
+		}
+
+		// Job Title     | title
+		if (empty($edit['field_job_title'][LANGUAGE_NONE])) {
+			// $capsule_edit['title'] = "";
+		}
+		else if (empty($original->field_job_title) && !empty($edit['field_job_title'][LANGUAGE_NONE])) {
+			$capsule_edit['jobTitle'] = $edit['field_job_title'][LANGUAGE_NONE][0]['value'];
+		}
+		else if ($edit['field_job_title'][LANGUAGE_NONE][0]['value'] != $original->field_job_title[LANGUAGE_NONE][0]['value']) {
+			$capsule_edit['jobTitle'] = $edit['field_job_title'][LANGUAGE_NONE][0]['value'];
+		}
+
+		// Employer      | employer_c
+		if (empty($edit['field_employer'][LANGUAGE_NONE])) {
+			$capsule_edit['organisationName'] = "";
+		}
+		else if (empty($original->field_employer) && !empty($edit['field_employer'][LANGUAGE_NONE])) {
+			$capsule_edit['organisationName'] = $edit['field_employer'][LANGUAGE_NONE][0]['value'];
+		}
+		else if ($edit['field_employer'][LANGUAGE_NONE][0]['value'] != $original->field_employer[LANGUAGE_NONE][0]['value']) {
+			$capsule_edit['organisationName'] = $edit['field_employer'][LANGUAGE_NONE][0]['value'];
+		}
+
+		// Home Phone    | phone_home
+		if (empty($edit['field_primary_phone'][LANGUAGE_NONE])) {
+			if (!empty($original->field_crm_phone_id)) {
+				$capsule_edit['contacts']['phone']['id'] = $original->field_crm_phone_id[LANGUAGE_NONE][0]['value'];
+			}
+
+			$capsule_edit['contacts']['phone']['@delete'] = true;
+		}
+		else if (empty($original->field_primary_phone) && !empty($edit['field_primary_phone'][LANGUAGE_NONE])) {
+			if (!empty($original->field_crm_phone_id)) {
+				$capsule_edit['contacts']['phone']['id'] = $original->field_crm_phone_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'phone';
+			}
+
+			$capsule_edit['contacts']['phone']['phoneNumber'] = $edit['field_primary_phone'][LANGUAGE_NONE][0]['value'];;
+		}
+		else if ($edit['field_primary_phone'][LANGUAGE_NONE][0]['value'] != $original->field_primary_phone[LANGUAGE_NONE][0]['value']) {
+			if (!empty($original->field_crm_phone_id)) {
+				$capsule_edit['contacts']['phone']['id'] = $original->field_crm_phone_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'phone';
+			}
+
+			$capsule_edit['contacts']['phone']['phoneNumber'] = $edit['field_primary_phone'][LANGUAGE_NONE][0]['value'];;
+		}
+
+		// Primary Address Street  |  thoroughfare         |  primary_address_street
+		if (empty($edit['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['street'] = "";
+		}
+		else if ((empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'])) || (empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['premise']))) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['street'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'] . "\n" . $edit['field_primary_address'][LANGUAGE_NONE][0]['premise'];
+		}
+		else if ($edit['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'] != $original->field_primary_address[LANGUAGE_NONE][0]['thoroughfare'] || $original->field_primary_address[LANGUAGE_NONE][0]['premise'] != $edit['field_primary_address'][LANGUAGE_NONE][0]['premise']) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['street'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['thoroughfare'] . "\n" . $edit['field_primary_address'][LANGUAGE_NONE][0]['premise'];
+		}
+
+		// Primary Address City    |  locality             |  primary_address_city
+		if (empty($edit['field_primary_address'][LANGUAGE_NONE][0]['locality'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['city'] = "";
+		}
+		else if (empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['locality'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['city'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['locality'];
+		}
+		else if ($edit['field_primary_address'][LANGUAGE_NONE][0]['locality'] != $original->field_primary_address[LANGUAGE_NONE][0]['locality']) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['city'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['locality'];
+		}
+
+		// Primary Address State   |  administrative_area  |  primary_address_state
+		if (empty($edit['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['state'] = "";
+		}
+		else if (empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['state'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'];
+		}
+		else if ($edit['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'] != $original->field_primary_address[LANGUAGE_NONE][0]['administrative_area']) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['state'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['administrative_area'];
+		}
+
+		// Primary Address Zip     |  postal_code          |  primary_address_postalcode
+		if (empty($edit['field_primary_address'][LANGUAGE_NONE][0]['postal_code'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['zip'] = "";
+		}
+		else if (empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['postal_code'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+
+			$capsule_edit['contacts']['address']['zip'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['postal_code'];
+		}
+		else if ($edit['field_primary_address'][LANGUAGE_NONE][0]['postal_code'] != $original->field_primary_address[LANGUAGE_NONE][0]['postal_code']) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['zip'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['postal_code'];
+		}
+
+		// Primary Address Country |  country              |  primary_address_country
+		if (empty($edit['field_primary_address'][LANGUAGE_NONE][0]['country'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['country'] = "";
+		}
+		else if (empty($original->field_primary_address) && !empty($edit['field_primary_address'][LANGUAGE_NONE][0]['country'])) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['country'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['country'];
+		}
+		else if ($edit['field_primary_address'][LANGUAGE_NONE][0]['country'] != $original->field_primary_address[LANGUAGE_NONE][0]['country']) {
+			if (!empty($original->field_crm_address_id)) {
+				$capsule_edit['contacts']['address']['id'] = $original->field_crm_address_id[LANGUAGE_NONE][0]['value'];
+			}
+			else {
+				$edit_no_id[] = 'address';
+			}
+
+			$capsule_edit['contacts']['address']['country'] = $edit['field_primary_address'][LANGUAGE_NONE][0]['country'];
+		}
+
+		if (count($capsule_edit) > 1) {
+			$saved_person = $capsule->person->update($original->field_sugar_id[LANGUAGE_NONE][0]['value'], $capsule_edit);
+
+			if (count($edit_no_id) > 0) {
+				foreach ($saved_person->person->contacts as $type => $value) {
+					if (in_array($type, array_unique($edit_no_id))) {
+						$edit['field_crm_'.$type.'_id'][LANGUAGE_NONE][0]['value'] = $value->id;
+					}
+				}
+			}
+		}
+	}
+}
+
+function dsvc_membership_test_update() {
+	return true;
+}
+
+// function dsvc_membership_user_update(&$edit, $account, $category) {
+
+// }
+
+function dsvc_membership_user_cancel($edit, $account, $method) {
+	// Remove the association with the drupal account on the sugar end.
+	_update_capsule_custom_field($account->field_sugar_id[LANGUAGE_NONE][0]['value'], 'Drupal ID', NULL);
+}
+
+function dsvc_membership_user_delete($account) {
+	// Remove the association with the drupal account on the sugar end.
+	_update_capsule_custom_field($account->field_sugar_id[LANGUAGE_NONE][0]['value'], 'Drupal ID', NULL);
+}
+
+function dsvc_membership_capsule_activate_member($account) {
+	// If the user has been given the dsvc member role set the record status as active.
+	_update_capsule_custom_field($account->field_sugar_id[LANGUAGE_NONE][0]['value'], 'Status', 'active');
+}
+
+function dsvc_membership_capsule_deactivate_member($account) {
+	// If the current date is past the user's expiration date set the record status as inactive.
+	_update_capsule_custom_field($account->field_sugar_id[LANGUAGE_NONE][0]['value'], 'Status', 'inactive');
+}
+
+function dsvc_membership_capsule_create_member($account) {
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+
+	$capsule_create = array(
+		'firstName' => $account->field_first_name[LANGUAGE_NONE][0]['value'],
+		'lastName' => $account->field_last_name[LANGUAGE_NONE][0]['value'],
+		'jobTitle' => $account->field_job_title[LANGUAGE_NONE][0]['value'],
+		'organisationName' => $account->field_employer[LANGUAGE_NONE][0]['value'],
+		'contacts' => array(
+			'address' => array(
+				'street' => $account->field_primary_address[LANGUAGE_NONE][0]['thoroughfare'],
+				'city' => $account->field_primary_address[LANGUAGE_NONE][0]['locality'],
+				'state' => $account->field_primary_address[LANGUAGE_NONE][0]['administrative_area'],
+				'zip' => $account->field_primary_address[LANGUAGE_NONE][0]['postal_code'],
+				'country' => $account->field_primary_address[LANGUAGE_NONE][0]['country'],
+			),
+			'email' => array(
+				'emailAddress' => $account->mail,
+			),
+			'phone' => array(
+				'phoneNumber' => $account->field_primary_phone[LANGUAGE_NONE][0]['value']
+			)
+		),
+	);
+
+	$contact_id = $capsule->person->add($capsule_create);
+
+	$member_since = new DateTime($account->field_dsvc_member_since[LANGUAGE_NONE][0]['value']);
+	$member_expires = new DateTime($account->field_dsvc_membership_expires[LANGUAGE_NONE][0]['value']);
+
+	$capsule->party->customfield->add($contact_id, array("label" => "Drupal ID", "text" => $account->uid));
+	$capsule->party->customfield->add($contact_id, array("label" => "Membership Type", "text" => $account->field_dsvc_membership_type[LANGUAGE_NONE][0]['value']));
+	$capsule->party->customfield->add($contact_id, array("label" => "Member Since", "date" => $member_since->format('Y-m-d\TH:i:s\Z')));
+	$capsule->party->customfield->add($contact_id, array("label" => "Member Expires", "date" => $member_expires->format('Y-m-d\TH:i:s\Z')));
+	$capsule->party->customfield->add($contact_id, array("label" => "Status", "text" => 'active'));
+
+	$contact = $capsule->party->get($contact_id);
+	$edit_account = array();
+
+	foreach ($contact->person->contacts as $type => $value) {
+		if (in_array($type, array('email', 'address', 'phone'))) {
+			$edit_account['field_crm_'.$type.'_id'][LANGUAGE_NONE][0]['value'] = $value->id;
+		}
+	}
+
+	$edit_account['field_sugar_id'][LANGUAGE_NONE][0]['value'] = $contact->person->id;
+	user_save($account, $edit_account, 'register');
+}
+
+function _update_capsule_custom_field($member_id, $field, $value) {
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$custom_field = $capsule->party->customfield->get($member_id, $field);
+
+	if ($value == NULL) {
+		$capsule->party->customfield->update($member_id, array("label" => $field, "text" => ""));
+	}
+	else {
+		if ($field == "Member Expires" || $field == "Member Since") {
+			$capsule->party->customfield->update($member_id, array("label" => $field, "date" => $value));
+		}
+		else {
+			$capsule->party->customfield->update($member_id, array("label" => $field, "text" => $value));
+		}
+	}
+}
+
+function dsvc_membership_line_item_renewal_update($line_item) {
+	$wrapper = entity_metadata_wrapper('commerce_line_item', $line_item);
+	$capsule = new Services_Capsule('dsvc', 'e5197b2ee8364c679929a2077989a2ea');
+	$filter = array();
+
+	if (!empty($values['email'])) {
+		$filter['email'] = $line_item->field_member_email_address[LANGUAGE_NONE][0]['value'];
+	}
+
+	if (!empty($line_item->field_member_first_name[LANGUAGE_NONE][0]['value'])) {
+		$filter['q'] = $line_item->field_member_first_name[LANGUAGE_NONE][0]['value'];
+	}
+
+	if (!empty($line_item->field_member_last_name[LANGUAGE_NONE][0]['value']) && !empty($line_item->field_member_first_name[LANGUAGE_NONE][0]['value'])) {
+		$filter['q'] .= ' ' . $line_item->field_member_last_name[LANGUAGE_NONE][0]['value'];
+	}
+
+	if (!empty($line_item->field_member_last_name[LANGUAGE_NONE][0]['value']) && empty($line_item->field_member_first_name[LANGUAGE_NONE][0]['value'])) {
+		$filter['q'] = $line_item->field_member_last_name[LANGUAGE_NONE][0]['value'];
+	}
+
+	$member = $capsule->party->getAny($filter);
+
+	if ($member->parties->{'@size'} == 1) {
+		$line_item->field_member_crm_id[LANGUAGE_NONE][0]['value'] = $member->parties->person->id;
+		commerce_line_item_save($line_item);
+	}
+	else {
+		commerce_cart_order_product_line_item_delete(commerce_order_load($line_item->order_id), $line_item->line_item_id);
+		$messages = drupal_get_messages('status');
+		drupal_set_message(t('Membership Renewal could not be added to your cart because membership information could not be found.'), 'error');
+	}
+}
+
+function dsvc_membership_membership_renewal($line_item) {
+	global $user;
+
+	$member_id = $line_item->field_member_crm_id[LANGUAGE_NONE][0]['value'];
+	$member_expires = new DateTime('now +1 year');
+
+	_update_capsule_custom_field($member_id, "Member Expires", $member_expires->format('Y-m-d\TH:i:s\Z'));
+	_update_capsule_custom_field($member_id, "Status", "active");
+
+	dsvc_membership_user_fields_associate($member_id, $user);
+}
+
+function dsvc_membership_options_united_states() {
+	return array(
+		'AL' => t('Alabama'),
+		'AK' => t('Alaska'),
+		'AS' => t('American Samoa'),
+		'AZ' => t('Arizona'),
+		'AR' => t('Arkansas'),
+		'CA' => t('California'),
+		'CO' => t('Colorado'),
+		'CT' => t('Connecticut'),
+		'DE' => t('Delaware'),
+		'DC' => t('District of Columbia'),
+		'FL' => t('Florida'),
+		'GA' => t('Georgia'),
+		'GU' => t('Guam'),
+		'HI' => t('Hawaii'),
+		'ID' => t('Idaho'),
+		'IL' => t('Illinois'),
+		'IN' => t('Indiana'),
+		'IA' => t('Iowa'),
+		'KS' => t('Kansas'),
+		'KY' => t('Kentucky'),
+		'LA' => t('Louisiana'),
+		'ME' => t('Maine'),
+		'MH' => t('Marshall Islands'),
+		'MD' => t('Maryland'),
+		'MA' => t('Massachusetts'),
+		'MI' => t('Michigan'),
+		'MN' => t('Minnesota'),
+		'MS' => t('Mississippi'),
+		'MO' => t('Missouri'),
+		'MT' => t('Montana'),
+		'NE' => t('Nebraska'),
+		'NV' => t('Nevada'),
+		'NH' => t('New Hampshire'),
+		'NJ' => t('New Jersey'),
+		'NM' => t('New Mexico'),
+		'NY' => t('New York'),
+		'NC' => t('North Carolina'),
+		'ND' => t('North Dakota'),
+		'MP' => t('Northern Marianas Islands'),
+		'OH' => t('Ohio'),
+		'OK' => t('Oklahoma'),
+		'OR' => t('Oregon'),
+		'PW' => t('Palau'),
+		'PA' => t('Pennsylvania'),
+		'PR' => t('Puerto Rico'),
+		'RI' => t('Rhode Island'),
+		'SC' => t('South Carolina'),
+		'SD' => t('South Dakota'),
+		'TN' => t('Tennessee'),
+		'TX' => t('Texas'),
+		'UT' => t('Utah'),
+		'VT' => t('Vermont'),
+		'VI' => t('Virgin Islands'),
+		'VA' => t('Virginia'),
+		'WA' => t('Washington'),
+		'WV' => t('West Virginia'),
+		'WI' => t('Wisconsin'),
+		'WY' => t('Wyoming'),
+	);
+}
+

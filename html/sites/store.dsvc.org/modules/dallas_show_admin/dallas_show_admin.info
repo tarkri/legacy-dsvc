@@ -1,0 +1,4 @@
+name = Dallas Show Entry Admin Tools
+description = Provides batch jobs for entries.
+package = Other
+core = 7.x

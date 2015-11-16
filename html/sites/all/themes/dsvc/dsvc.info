@@ -1,0 +1,40 @@
+; $Id: dsvc.info,v 2.1 2008/12/15 23:27:32 goba Exp $
+
+name = "DSVC"
+description = "Default layout for DSVC Web site."
+
+core = 7.x
+engine = phptemplate
+base theme = html5_base
+
+stylesheets[all][] = _style/typography.css
+stylesheets[all][] = _style/colors.css
+stylesheets[all][] = _style/layout.css
+
+scripts[] = _vendor/hyphenator.js
+scripts[] = _behavior/_global.js
+
+regions[logo] = Logo
+regions[primary_navigation] = Primary Navigation
+regions[content] = Primary Content
+regions[secondary_content] = Secondary Content
+regions[footer] = Footer
+regions[tertiary_content] = Tertiary Content
+
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[sidebar_second] = Sidebar second
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+
+fonts[typekit_api][] = "ff-meta-serif-web-pro#n7"
+fonts[typekit_api][] = "ff-meta-serif-web-pro#n5"
+fonts[typekit_api][] = "ff-meta-serif-web-pro#i5"
+fonts[typekit_api][] = "ff-meta-web-pro#n7"
+fonts[typekit_api][] = "ff-meta-web-pro#n4"
+fonts[typekit_api][] = "ff-meta-web-pro#i4"
+
+features[] = favicon
+features[] = main_menu

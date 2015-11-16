@@ -1,0 +1,6 @@
+name = Dallas Show Customer Profile
+description = Adds customer profile for users.
+package = Commerce (contrib)
+dependencies[] = commerce_customer
+dependencies[] = commerce_customer_ui
+core = 7.x

@@ -1,0 +1,17 @@
+<?php
+/**
+* Implementation of hook_commerce_customer_profile_type_info
+*/
+function dallas_show_customer_commerce_customer_profile_type_info() {
+  $profile_types = array();
+
+  $profile_types['dshow_profile'] = array(
+    'type' => 'dshow_profile',
+    'name' => t('Agency Information'),
+    'description' => t('The profile used to collect personal information on the checkout and order forms.'),
+    'help' => '',
+    'addressfield' => FALSE
+  );
+
+  return $profile_types;
+}

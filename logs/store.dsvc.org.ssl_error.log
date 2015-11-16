@@ -1,0 +1,651 @@
+[Thu Jan 16 15:08:04 2014] [error] Init: Unable to read pass phrase [Hint: key introduced or changed before restart?]
+[Thu Jan 16 15:08:04 2014] [error] SSL Library Error: 218710120 error:0D094068:asn1 encoding routines:d2i_ASN1_SET:bad tag
+[Thu Jan 16 15:08:04 2014] [error] SSL Library Error: 218529960 error:0D0680A8:asn1 encoding routines:ASN1_CHECK_TLEN:wrong tag
+[Thu Jan 16 15:08:04 2014] [error] SSL Library Error: 218595386 error:0D07803A:asn1 encoding routines:ASN1_ITEM_EX_D2I:nested asn1 error
+[Thu Jan 16 15:08:04 2014] [error] SSL Library Error: 218734605 error:0D09A00D:asn1 encoding routines:d2i_PrivateKey:ASN1 lib
+[Thu Jan 16 16:06:42 2014] [error] Init: Unable to read pass phrase [Hint: key introduced or changed before restart?]
+[Thu Jan 16 16:06:42 2014] [error] SSL Library Error: 218710120 error:0D094068:asn1 encoding routines:d2i_ASN1_SET:bad tag
+[Thu Jan 16 16:06:42 2014] [error] SSL Library Error: 218529960 error:0D0680A8:asn1 encoding routines:ASN1_CHECK_TLEN:wrong tag
+[Thu Jan 16 16:06:42 2014] [error] SSL Library Error: 218595386 error:0D07803A:asn1 encoding routines:ASN1_ITEM_EX_D2I:nested asn1 error
+[Thu Jan 16 16:06:42 2014] [error] SSL Library Error: 218734605 error:0D09A00D:asn1 encoding routines:d2i_PrivateKey:ASN1 lib
+[Thu Jan 16 16:41:44 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'RulesEventHandlerEntityBundle' not found in /home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/rules/modules/node.rules.inc on line 147, referer: https://store.dsvc.org/update.php?op=info
+[Thu Jan 16 16:41:44 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Jan 16 16:41:45 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'RulesEventHandlerEntityBundle' not found in /home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/rules/modules/node.rules.inc on line 147
+[Thu Jan 16 16:42:04 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'RulesEventHandlerEntityBundle' not found in /home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/rules/modules/node.rules.inc on line 147
+[Tue Jan 21 20:00:58 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Wed Jan 22 08:32:07 2014] [error] [client 176.10.252.111] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Wed Jan 22 21:50:13 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jan 27 10:05:42 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_uFlu7Jn3uyy2SkSCNzKYcRrgWa-U6vEgN1xQgPvZMOk.js
+[Tue Jan 28 14:39:43 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_rv_BKYv7yieH0IgHddhWHDC-bWGan8yiJbusyOpr0mw.js
+[Tue Jan 28 19:48:54 2014] [error] [client 212.158.160.252] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Jan 28 19:48:55 2014] [error] [client 212.158.160.252] script not found or unable to stat: /var/www/cgi-bin/php5
+[Tue Jan 28 19:48:56 2014] [error] [client 212.158.160.252] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Tue Jan 28 19:48:57 2014] [error] [client 212.158.160.252] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Tue Jan 28 19:48:57 2014] [error] [client 212.158.160.252] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Jan 30 18:38:56 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_bd06-1h7XFydzrxPN_erCiKQRUCN5iqTvRyfb3aSu6g.js
+[Fri Jan 31 20:43:22 2014] [error] [client 66.249.73.131] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Feb 04 08:01:21 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Tue Feb 04 14:09:53 2014] [error] [client 173.172.161.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Feb 04 14:10:07 2014] [error] [client 173.172.161.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Feb 05 01:14:56 2014] [error] [client 131.107.174.204] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Sat Feb 08 21:16:29 2014] [error] [client 54.197.109.176] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Sun Feb 09 03:33:35 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_NPVBvZfgwcrUZtEyuU-NtxCluoTuP7i_OpiWdWfJPVE.js
+[Tue Feb 11 13:16:00 2014] [error] [client 162.243.42.9] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Tue Feb 11 13:29:23 2014] [error] [client 162.243.42.9] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Wed Feb 12 20:36:39 2014] [error] [client 162.243.70.62] PHP Fatal error:  Call to undefined function ctools_include() in /home/dsvc/dsvc.org/html/sites/all/themes/dsvc/template.php on line 12
+[Fri Feb 14 10:11:36 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/actions/configure
+[Fri Feb 14 10:16:27 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/handlers/site_template_panel_context/layout
+[Fri Feb 14 10:23:55 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/handlers/site_template_panel_context/layout
+[Fri Feb 14 10:24:45 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/handlers/site_template_panel_context/layout
+[Fri Feb 14 10:42:03 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/panels/settings/panel-page
+[Fri Feb 14 10:42:07 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/panels/settings/panels-mini
+[Fri Feb 14 10:43:39 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/actions/configure
+[Fri Feb 14 10:46:25 2014] [error] [client 12.106.212.1] Directory index forbidden by Options directive: /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/omega/omega/panels/layouts/omega/, referer: https://store.dsvc.org/admin/structure/pages/nojs/operation/site_template/actions/configure
+[Tue Feb 18 10:07:57 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:07:57 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:08:02 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:08:02 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:08:08 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:08:08 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:11 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:11 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:15 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:15 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:29 2014] [error] [client 12.106.212.1] (2)No such file or directory: Could not open password file: /home/dsvc/dsvc.org/sitedata/.htpasswords, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 10:09:29 2014] [error] [client 12.106.212.1] access to / failed, reason: verification of user id 'belshire' not configured, referer: https://store.dsvc.org/admin/commerce/config/product-pricing/rules/manage/rules_dsvc_member_discount/edit/5
+[Tue Feb 18 15:30:37 2014] [error] [client 12.106.212.1] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/dsvc/dsvc.org/html/includes/file.inc on line 2072, referer: https://store.dsvc.org/admin/modules/list/confirm
+[Tue Feb 18 15:30:38 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Feb 20 09:42:02 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Feb 20 10:00:58 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_RETURN in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/Services/Capsule/Common.php on line 289
+[Fri Feb 21 10:10:24 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ']', expecting ')' in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.rules.inc on line 41, referer: https://store.dsvc.org/admin/config/workflow/rules/reaction/manage/rules_check_membership_information
+[Fri Feb 21 10:10:24 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Feb 21 14:09:29 2014] [error] [client 12.106.212.1] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.module on line 1058, referer: https://store.dsvc.org/membershiprenewal/membership-renewal
+[Fri Feb 21 14:11:29 2014] [error] [client 12.106.212.1] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.module on line 1063, referer: https://store.dsvc.org/membershiprenewal/membership-renewal
+[Fri Feb 21 14:54:47 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ';' in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.module on line 1079, referer: https://store.dsvc.org/membershiprenewal/membership-renewal
+[Fri Feb 21 16:57:08 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Feb 22 13:03:51 2014] [error] [client 1.234.90.191] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Feb 22 13:03:52 2014] [error] [client 1.234.90.191] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Feb 22 13:03:53 2014] [error] [client 1.234.90.191] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sat Feb 22 13:03:54 2014] [error] [client 1.234.90.191] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sat Feb 22 13:03:55 2014] [error] [client 1.234.90.191] script not found or unable to stat: /var/www/cgi-bin/php4
+[Mon Feb 24 10:45:50 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Feb 24 19:27:51 2014] [error] [client 99.6.36.51] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Feb 24 21:11:58 2014] [error] [client 99.6.36.51] PHP Fatal error:  Cannot redeclare dsvc_store_preprocess_user_profile() (previously declared in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/dsvc_store/template.php:9) in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/dsvc_store/preprocess/user-profile.preprocess.inc on line 30, referer: https://store.dsvc.org/dallas-show/enter
+[Wed Feb 26 09:55:21 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Feb 26 15:34:15 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Feb 26 15:49:54 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Thu Feb 27 15:59:46 2014] [error] [client 99.110.248.150] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Feb 27 15:59:47 2014] [error] [client 99.110.248.150] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Feb 28 10:41:17 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_uFlu7Jn3uyy2SkSCNzKYcRrgWa-U6vEgN1xQgPvZMOk.js
+[Fri Feb 28 22:46:24 2014] [error] [client 66.249.75.167] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Mar 02 08:03:37 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_rv_BKYv7yieH0IgHddhWHDC-bWGan8yiJbusyOpr0mw.js
+[Wed Mar 05 16:56:01 2014] [error] [client 138.237.95.137] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 06 16:59:02 2014] [error] [client 12.106.212.1] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/dsvc/dsvc.org/html/includes/path.inc on line 77, referer: https://store.dsvc.org/admin/modules/list/confirm
+[Thu Mar 06 16:59:03 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Mar 08 09:19:55 2014] [error] [client 66.249.79.49] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Mar 15 14:39:09 2014] [error] [client 66.249.75.173] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Mar 16 11:42:35 2014] [error] [client 99.7.49.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Mar 16 12:25:21 2014] [error] [client 99.7.49.117] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in Unknown on line 0, referer: https://store.dsvc.org/admin/modules/list/confirm
+[Sun Mar 16 17:16:39 2014] [error] [client 108.235.65.78] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Mar 17 10:55:05 2014] [error] [client 162.198.156.91] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/dsvc.org/files/2014-Dallas-Show-CFE.pdf
+[Mon Mar 17 15:42:34 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Mar 18 09:55:57 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Mar 18 12:28:54 2014] [error] [client 108.217.48.120] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Mar 19 12:56:16 2014] [error] [client 76.184.145.204] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 20 14:10:07 2014] [error] [client 66.249.74.120] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Thu Mar 20 16:59:15 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 20 16:59:16 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Mar 24 14:28:01 2014] [error] [client 69.15.115.185] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/dsvc.org/files/2014-Dallas-Show-CFE.pdf
+[Mon Mar 24 15:05:27 2014] [error] [client 38.107.251.98] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Mar 24 15:05:28 2014] [error] [client 38.107.251.98] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Mar 25 16:48:04 2014] [error] [client 38.107.251.98] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Mar 25 22:37:33 2014] [error] [client 96.226.160.59] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Mar 26 16:26:06 2014] [error] [client 75.140.228.178] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Mar 26 16:26:07 2014] [error] [client 75.140.228.178] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Mar 26 18:55:02 2014] [error] [client 66.25.36.29] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 27 10:34:53 2014] [error] [client 12.106.212.1] PHP Fatal error:  Maximum execution time of 30 seconds exceeded in /home/dsvc/dsvc.org/html/includes/database/query.inc on line 1169, referer: https://store.dsvc.org/admin/modules
+[Thu Mar 27 10:34:56 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 27 11:48:54 2014] [error] [client 66.249.65.81] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 27 15:33:19 2014] [error] [client 209.116.209.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Mar 27 17:51:42 2014] [error] [client 99.126.229.204] PHP Fatal error:  Call to undefined method Services_Capsule_RuntimeException::getHttpStatus() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/commerce_stripe/commerce_stripe.module on line 274, referer: https://store.dsvc.org/checkout/226/review
+[Thu Mar 27 17:51:42 2014] [error] [client 99.126.229.204] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/checkout/226/review
+[Fri Mar 28 09:24:50 2014] [error] [client 70.113.156.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 10:37:13 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 10:37:13 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 14:21:00 2014] [error] [client 76.186.13.43] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 14:30:16 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 14:30:18 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 15:17:23 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 15:51:17 2014] [error] [client 69.199.87.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 17:15:43 2014] [error] [client 173.74.107.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 17:15:44 2014] [error] [client 173.74.107.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Mar 28 17:34:11 2014] [error] [client 107.201.233.70] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Mar 29 00:11:24 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Sat Mar 29 00:11:26 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Sat Mar 29 00:11:27 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_rv_BKYv7yieH0IgHddhWHDC-bWGan8yiJbusyOpr0mw.js
+[Sat Mar 29 00:11:30 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Sat Mar 29 00:11:32 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Sat Mar 29 06:54:17 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Sat Mar 29 23:39:33 2014] [error] [client 71.170.134.52] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Mar 30 03:03:23 2014] [error] [client 174.127.133.42] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Sun Mar 30 03:10:12 2014] [error] [client 174.127.133.67] client denied by server configuration: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/.ajax-processed
+[Mon Mar 31 10:12:38 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_NPVBvZfgwcrUZtEyuU-NtxCluoTuP7i_OpiWdWfJPVE.js
+[Mon Mar 31 13:55:07 2014] [error] [client 66.64.12.90] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Mar 31 17:20:22 2014] [error] [client 74.203.179.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 02 15:42:04 2014] [error] [client 69.199.87.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 02 19:08:49 2014] [error] [client 162.198.156.91] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/dsvc.org/files/2014-Dallas-Show-CFE.pdf
+[Thu Apr 03 09:16:06 2014] [error] [client 71.252.188.76] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 03 11:40:55 2014] [error] [client 12.40.5.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/user/login
+[Fri Apr 04 11:09:29 2014] [error] [client 66.249.67.85] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_bd06-1h7XFydzrxPN_erCiKQRUCN5iqTvRyfb3aSu6g.js
+[Mon Apr 07 14:48:22 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 07 15:36:34 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 07 15:36:35 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 07 22:03:48 2014] [error] [client 66.90.98.50] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 07 22:03:50 2014] [error] [client 66.90.98.50] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 08 09:13:33 2014] [error] [client 66.249.66.181] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 08 11:33:45 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 08 15:16:19 2014] [error] [client 173.203.79.216] request failed: error reading the headers
+[Wed Apr 09 17:31:36 2014] [error] [client 188.95.234.6] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /
+[Fri Apr 11 11:23:32 2014] [error] [client 8.35.200.40] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 14 11:31:39 2014] [error] [client 12.106.212.1] PHP Fatal error:  Call to undefined function libraries_load() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 3, referer: https://store.dsvc.org/admin/modules
+[Mon Apr 14 11:31:39 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 14 11:31:39 2014] [error] [client 12.106.212.1] PHP Fatal error:  Call to undefined function libraries_load() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 3
+[Mon Apr 14 11:31:48 2014] [error] [client 12.106.212.1] PHP Fatal error:  Call to undefined function libraries_load() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 3
+[Mon Apr 14 11:38:12 2014] [error] [client 12.106.212.1] PHP Fatal error:  Call to undefined function libraries_load() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 3
+[Mon Apr 14 14:19:29 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'FPDI' not found in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 26
+[Mon Apr 14 14:22:14 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'FPDI' not found in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 26
+[Mon Apr 14 14:22:29 2014] [error] [client 12.106.212.1] PHP Fatal error:  Class 'FPDI' not found in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 26
+[Mon Apr 14 14:30:56 2014] [error] [client 12.106.212.1] PHP Fatal error:  Using $this when not in object context in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 35, referer: https://store.dsvc.org/credit-tags/generate
+[Tue Apr 15 14:18:38 2014] [error] [client 8.35.200.32] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 16 16:12:34 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Apr 19 15:12:51 2014] [error] [client 66.249.66.167] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Apr 20 00:28:17 2014] [error] [client 66.249.66.7] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Sun Apr 20 00:28:17 2014] [error] [client 66.249.66.7] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Sun Apr 20 00:28:17 2014] [error] [client 66.249.66.7] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Sun Apr 20 00:28:18 2014] [error] [client 66.249.66.7] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Mon Apr 21 16:05:05 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 21 16:30:41 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 135
+[Mon Apr 21 16:30:46 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 135
+[Mon Apr 21 16:32:13 2014] [error] [client 12.106.212.1] PHP Fatal error:  Call to undefined function Write() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 125
+[Mon Apr 21 16:33:37 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 21 16:35:26 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected '[' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 95
+[Mon Apr 21 16:35:28 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected '[' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 95
+[Mon Apr 21 16:35:28 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected '[' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 95
+[Mon Apr 21 16:36:51 2014] [error] [client 12.106.212.1] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 129
+[Mon Apr 21 16:37:11 2014] [error] [client 12.106.212.1] PHP Fatal error:  Cannot use object of type stdClass as array in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 129
+[Mon Apr 21 17:25:55 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 162
+[Mon Apr 21 17:26:20 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 162
+[Mon Apr 21 17:26:22 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 162
+[Mon Apr 21 17:26:22 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 21 17:26:23 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 162
+[Mon Apr 21 17:26:47 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 158
+[Mon Apr 21 17:26:49 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 158
+[Mon Apr 21 17:26:49 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 21 17:26:49 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected ')' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/credit_tags/credit_tags.module on line 158
+[Tue Apr 22 11:06:56 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_IF in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 100, referer: https://store.dsvc.org/admin/modules
+[Tue Apr 22 11:09:21 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_IF in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 100, referer: https://store.dsvc.org/admin/modules/list
+[Tue Apr 22 14:30:27 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 14:30:28 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 14:50:28 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 14:55:54 2014] [error] [client 38.114.104.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 14:56:15 2014] [error] [client 71.21.129.203] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 14:57:06 2014] [error] [client 71.40.113.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 14:57:40 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 14:58:44 2014] [error] [client 65.46.139.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 14:58:55 2014] [error] [client 64.221.11.153] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 15:02:52 2014] [error] [client 66.25.41.33] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:04:57 2014] [error] [client 107.201.234.166] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:04:58 2014] [error] [client 107.201.234.166] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:05:16 2014] [error] [client 99.46.120.219] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:07:26 2014] [error] [client 69.15.199.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:07:28 2014] [error] [client 69.15.199.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:07:31 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:09:33 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:09:34 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:12:28 2014] [error] [client 64.183.215.58] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 15:24:46 2014] [error] [client 70.112.208.47] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:31:46 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:34:51 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:35:08 2014] [error] [client 66.193.245.178] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:35:31 2014] [error] [client 71.170.70.159] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:35:31 2014] [error] [client 71.170.70.159] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 15:52:14 2014] [error] [client 72.48.93.92] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=36c92160a9
+[Tue Apr 22 15:58:10 2014] [error] [client 98.189.203.134] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue Apr 22 16:08:04 2014] [error] [client 24.182.214.42] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 16:29:33 2014] [error] [client 98.195.187.172] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 16:29:34 2014] [error] [client 98.195.187.172] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 16:51:42 2014] [error] [client 76.227.89.38] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 16:51:43 2014] [error] [client 76.227.89.38] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 17:35:56 2014] [error] [client 216.59.200.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 22 17:35:57 2014] [error] [client 216.59.200.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 08:01:19 2014] [error] [client 204.152.213.188] script not found or unable to stat: /var/www/cgi-bin/php
+[Wed Apr 23 08:01:19 2014] [error] [client 204.152.213.188] script not found or unable to stat: /var/www/cgi-bin/php5
+[Wed Apr 23 08:01:19 2014] [error] [client 204.152.213.188] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Wed Apr 23 08:01:20 2014] [error] [client 204.152.213.188] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Wed Apr 23 08:01:20 2014] [error] [client 204.152.213.188] script not found or unable to stat: /var/www/cgi-bin/php4
+[Wed Apr 23 09:00:42 2014] [error] [client 71.40.127.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 09:00:43 2014] [error] [client 71.40.127.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 10:54:12 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 10:54:14 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 15:41:12 2014] [error] [client 207.114.248.94] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 15:41:14 2014] [error] [client 207.114.248.94] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 16:13:23 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 16:13:24 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 23 16:19:11 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 15:33:54 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 15:33:55 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 15:45:26 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 15:45:27 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 16:05:20 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Thu Apr 24 16:47:43 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Apr 24 16:47:44 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Apr 25 12:36:53 2014] [error] [client 173.74.107.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Apr 25 12:36:54 2014] [error] [client 173.74.107.45] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 28 09:21:20 2014] [error] [client 99.126.229.204] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Mon Apr 28 10:05:16 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 28 10:05:17 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 28 10:43:09 2014] [error] [client 38.114.104.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Mon Apr 28 12:05:51 2014] [error] [client 108.46.168.67] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Apr 28 12:05:52 2014] [error] [client 108.46.168.67] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Apr 29 16:10:41 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Wed Apr 30 08:09:11 2014] [error] [client 129.120.207.115] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 30 08:09:13 2014] [error] [client 129.120.207.115] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Apr 30 14:04:26 2014] [error] [client 71.40.113.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=fea54fccae
+[Wed Apr 30 14:53:04 2014] [error] [client 66.249.64.230] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 01 10:48:51 2014] [error] [client 68.51.8.75] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=f0661f780b
+[Thu May 01 15:34:25 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 01 15:34:26 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 01 23:42:11 2014] [error] [client 66.249.66.8] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_NPVBvZfgwcrUZtEyuU-NtxCluoTuP7i_OpiWdWfJPVE.js
+[Thu May 01 23:42:12 2014] [error] [client 66.249.66.22] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Sat May 03 05:02:31 2014] [error] [client 182.178.66.252] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat May 03 05:02:31 2014] [error] [client 182.178.66.252] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 09:30:43 2014] [error] [client 71.40.127.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 09:30:44 2014] [error] [client 71.40.127.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 10:44:08 2014] [error] [client 70.113.156.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 11:13:21 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 11:13:22 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 11:13:23 2014] [error] [client 67.78.46.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 11:25:14 2014] [error] [client 66.55.29.226] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Mon May 05 12:01:39 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 12:01:41 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 13:07:34 2014] [error] [client 216.138.113.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Mon May 05 16:27:45 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 16:58:50 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 16:58:51 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 23:14:30 2014] [error] [client 96.226.153.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 05 23:14:31 2014] [error] [client 96.226.153.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 06 06:38:18 2014] [error] [client 64.183.215.58] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 06 09:02:07 2014] [error] [client 38.114.104.30] PHP Fatal error:  Call to undefined method Services_Capsule_RuntimeException::getHttpStatus() in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/commerce_stripe/commerce_stripe.module on line 274, referer: https://store.dsvc.org/checkout/311/review
+[Tue May 06 09:53:08 2014] [error] [client 69.15.199.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 06 14:12:44 2014] [error] [client 66.161.206.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 06 14:51:38 2014] [error] [client 66.249.65.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Tue May 06 14:51:38 2014] [error] [client 66.249.73.106] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Tue May 06 14:51:42 2014] [error] [client 66.249.65.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Tue May 06 14:51:43 2014] [error] [client 66.249.65.31] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Tue May 06 14:51:44 2014] [error] [client 66.249.65.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_uFlu7Jn3uyy2SkSCNzKYcRrgWa-U6vEgN1xQgPvZMOk.js
+[Tue May 06 15:07:57 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 06 15:07:58 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 06 15:09:12 2014] [error] [client 71.40.113.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 06 16:38:41 2014] [error] [client 38.114.104.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Wed May 07 11:14:12 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 07 12:06:59 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_IF, expecting ',' or ';' in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/themes/dsvc_store/templates/node--credit_tag.tpl.php on line 30, referer: https://store.dsvc.org/show-entry-credit-tags-2
+[Wed May 07 14:32:26 2014] [error] [client 66.161.206.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 07 14:32:30 2014] [error] [client 66.161.206.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 08 09:06:53 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Thu May 08 09:07:55 2014] [error] [client 38.114.104.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 08 09:07:55 2014] [error] [client 38.114.104.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 08 16:42:43 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 08 16:42:44 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 09 15:04:11 2014] [error] [client 68.51.8.75] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=f0661f780b
+[Mon May 12 11:14:02 2014] [error] [client 69.199.87.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 12 11:14:04 2014] [error] [client 69.199.87.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 12 11:41:56 2014] [error] [client 66.249.76.131] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 12 14:50:07 2014] [error] [client 107.217.96.223] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=66d1e5ad87
+[Mon May 12 14:59:54 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Mon May 12 16:58:38 2014] [error] [client 108.46.168.67] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 12 16:58:40 2014] [error] [client 108.46.168.67] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 13 17:27:55 2014] [error] [client 98.189.203.134] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=8657fe8696
+[Thu May 15 11:19:41 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286, referer: https://store.dsvc.org/node/1546/devel
+[Thu May 15 11:19:41 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 15 11:19:41 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286
+[Thu May 15 11:20:26 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286, referer: https://store.dsvc.org/node/1546/devel
+[Thu May 15 11:20:31 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286
+[Thu May 15 11:20:55 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286
+[Thu May 15 11:20:59 2014] [error] [client 37.187.73.216] PHP Parse error:  syntax error, unexpected T_STRING in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 286, referer: http://store.dsvc.org/
+[Thu May 15 13:37:27 2014] [error] [client 12.106.212.1] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/dsvc/dsvc.org/html/sites/store.dsvc.org/modules/dallas_show_admin/dallas_show_admin.module on line 263, referer: https://store.dsvc.org/batch?op=start&id=986
+[Mon May 19 08:18:14 2014] [error] [client 66.249.65.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Mon May 19 10:55:25 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 19 10:55:26 2014] [error] [client 208.92.212.34] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 19 11:26:32 2014] [error] [client 216.138.113.146] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=f616d93f57
+[Tue May 20 10:07:26 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 20 10:07:29 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 20 12:02:00 2014] [error] [client 65.46.139.62] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 20 21:21:37 2014] [error] [client 66.249.65.31] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_rv_BKYv7yieH0IgHddhWHDC-bWGan8yiJbusyOpr0mw.js
+[Wed May 21 14:08:12 2014] [error] [client 99.126.229.204] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=76e4ab3de5
+[Thu May 22 09:39:19 2014] [error] [client 69.195.221.4] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 22 09:39:20 2014] [error] [client 69.195.221.4] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 22 10:14:02 2014] [error] [client 173.172.183.195] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Thu May 22 13:42:22 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 22 13:42:24 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 22 14:37:22 2014] [error] [client 68.65.140.226] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 12:32:39 2014] [error] [client 76.227.89.38] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 14:13:20 2014] [error] [client 72.183.111.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 14:13:21 2014] [error] [client 72.183.111.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 14:57:56 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 14:57:57 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 23 20:19:04 2014] [error] [client 66.249.73.131] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon May 26 13:02:06 2014] [error] [client 99.104.25.84] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Tue May 27 09:16:18 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 27 09:16:19 2014] [error] [client 64.183.189.214] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue May 27 13:44:21 2014] [error] [client 72.47.4.101] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=02dd55c5e8
+[Wed May 28 08:11:14 2014] [error] [client 64.183.215.58] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=4f88d32825
+[Wed May 28 08:51:16 2014] [error] [client 66.25.41.33] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 08:51:18 2014] [error] [client 66.25.41.33] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 09:00:18 2014] [error] [client 75.19.31.201] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Wed May 28 10:55:36 2014] [error] [client 71.40.113.234] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=fea54fccae
+[Wed May 28 11:37:53 2014] [error] [client 69.15.199.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 11:37:54 2014] [error] [client 69.15.199.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 12:42:45 2014] [error] [client 204.88.28.242] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 12:42:47 2014] [error] [client 204.88.28.242] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 14:31:30 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed May 28 14:31:31 2014] [error] [client 209.136.109.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 07:12:44 2014] [error] [client 173.172.183.195] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=66d1e5ad87
+[Thu May 29 09:23:49 2014] [error] [client 107.201.234.166] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 09:44:28 2014] [error] [client 99.126.229.204] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/dsvc.org/files/2014-Dallas-Show-CFE.pdf
+[Thu May 29 09:56:31 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 09:56:33 2014] [error] [client 50.84.2.162] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 13:01:51 2014] [error] [client 72.47.4.101] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=02dd55c5e8
+[Thu May 29 14:21:31 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 14:21:31 2014] [error] [client 64.95.216.202] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu May 29 15:20:03 2014] [error] [client 72.47.4.101] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=02dd55c5e8
+[Thu May 29 16:07:29 2014] [error] [client 66.25.42.2] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf?mc_cid=c1cbc0f895&mc_eid=8657fe8696
+[Fri May 30 09:56:25 2014] [error] [client 129.120.207.134] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 30 12:20:41 2014] [error] [client 70.113.156.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 30 12:20:42 2014] [error] [client 70.113.156.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 30 12:48:29 2014] [error] [client 76.227.89.38] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri May 30 23:53:11 2014] [error] [client 66.249.67.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_bd06-1h7XFydzrxPN_erCiKQRUCN5iqTvRyfb3aSu6g.js
+[Fri May 30 23:53:12 2014] [error] [client 66.249.67.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Fri May 30 23:53:13 2014] [error] [client 66.249.67.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Fri May 30 23:53:14 2014] [error] [client 66.249.67.31] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Fri May 30 23:53:15 2014] [error] [client 66.249.67.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Mon Jun 02 10:25:49 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:34:37 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:39:27 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:42:30 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:47:46 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:53:59 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 10:59:51 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:03:14 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:06:23 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:06:25 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:06:58 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jun 02 11:07:00 2014] [error] [client 72.16.232.54] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jun 02 11:22:40 2014] [error] [client 50.19.1.73] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jun 02 11:23:11 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:26:57 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:27:33 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:28:37 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:34:37 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:54:54 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:58:18 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:58:18 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 11:58:57 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 12:04:32 2014] [error] [client 128.59.23.105] request failed: error reading the headers
+[Mon Jun 02 20:02:48 2014] [error] [client 76.184.244.82] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jun 02 20:02:49 2014] [error] [client 76.184.244.82] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Jun 02 21:16:12 2014] [error] [client 108.250.106.19] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Jun 03 09:27:18 2014] [error] [client 207.114.248.94] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Jun 03 12:55:35 2014] [error] [client 38.96.192.35] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Jun 04 04:11:20 2014] [error] [client 66.249.73.131] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Jun 04 13:34:59 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Jun 04 13:35:01 2014] [error] [client 216.201.174.174] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Jun 05 02:19:09 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Jun 05 02:19:10 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Jun 05 02:19:11 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Jun 05 02:19:11 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Jun 05 02:19:12 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Jun 05 04:15:08 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Jun 05 04:15:09 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Jun 05 04:15:09 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Jun 05 04:15:10 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Jun 05 04:15:11 2014] [error] [client 189.42.20.131] script not found or unable to stat: /var/www/cgi-bin/php4
+[Fri Jun 06 12:15:25 2014] [error] [client 99.46.120.219] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Jun 06 16:20:32 2014] [error] [client 66.180.120.65] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/sites/store.dsvc.org/files/Dallas_Show_hanging_instructions.pdf
+[Sat Jun 07 14:56:20 2014] [error] [client 66.249.69.21] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Sat Jun 07 14:56:22 2014] [error] [client 66.249.69.165] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Sat Jun 07 14:56:23 2014] [error] [client 66.249.69.5] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Sat Jun 07 14:56:24 2014] [error] [client 66.249.69.5] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Tue Jun 10 15:18:36 2014] [error] [client 143.112.32.4] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Jun 10 15:18:36 2014] [error] [client 143.112.32.4] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Jun 14 07:42:36 2014] [error] [client 37.59.213.16] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Jun 14 07:42:37 2014] [error] [client 37.59.213.16] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Jun 14 07:42:38 2014] [error] [client 37.59.213.16] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sat Jun 14 07:42:38 2014] [error] [client 37.59.213.16] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sat Jun 14 07:42:39 2014] [error] [client 37.59.213.16] script not found or unable to stat: /var/www/cgi-bin/php4
+[Sat Jun 14 15:03:10 2014] [error] [client 141.212.121.128] request failed: error reading the headers
+[Sun Jun 15 07:13:44 2014] [error] [client 66.249.65.102] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Jun 17 04:12:58 2014] [error] [client 66.249.74.119] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Tue Jun 17 04:12:59 2014] [error] [client 66.249.74.119] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Tue Jun 17 04:12:59 2014] [error] [client 66.249.74.119] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Tue Jun 17 04:13:00 2014] [error] [client 66.249.74.119] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Tue Jun 17 09:35:52 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Jun 17 09:35:53 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php5
+[Tue Jun 17 09:35:55 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Tue Jun 17 09:35:56 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Tue Jun 17 09:35:58 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php4
+[Sat Jun 21 05:19:01 2014] [error] [client 66.249.69.165] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_xujYIE7Ra2MDSp9xJE7dfdi_YOzhWLXNr5VsiBrUkS4.js
+[Tue Jun 24 11:01:56 2014] [error] [client 66.249.65.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Tue Jun 24 11:01:57 2014] [error] [client 66.249.65.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Tue Jun 24 11:01:58 2014] [error] [client 66.249.65.57] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Tue Jun 24 11:01:58 2014] [error] [client 66.249.65.44] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Wed Jun 25 15:38:48 2014] [error] [client 64.244.184.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Jun 25 15:38:49 2014] [error] [client 64.244.184.30] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Jun 25 20:59:21 2014] [error] [client 107.140.217.90] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Jun 26 03:39:16 2014] [error] [client 207.241.229.198] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/robots.txt
+[Thu Jun 26 09:24:28 2014] [error] [client 12.106.212.1] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Jun 26 10:44:26 2014] [error] [client 66.249.65.89] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Jul 04 12:02:07 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139, referer: https://store.dsvc.org/
+[Fri Jul 04 12:02:07 2014] [error] [client 99.7.49.117] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Jul 04 12:02:09 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139
+[Fri Jul 04 12:02:20 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139, referer: https://store.dsvc.org/
+[Fri Jul 04 12:02:27 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139, referer: https://store.dsvc.org/
+[Fri Jul 04 12:03:28 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139, referer: https://store.dsvc.org/
+[Fri Jul 04 12:06:34 2014] [error] [client 99.7.49.117] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/home/dsvc/dsvc.org/html/profiles/commerce_kickstart/modules/contrib/entity/includes/entity.inc' (include_path='.:/home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership:/home/dsvc/pear/share/pear') in /home/dsvc/dsvc.org/html/includes/bootstrap.inc on line 3139, referer: https://store.dsvc.org/
+[Mon Jul 07 07:39:36 2014] [error] [client 66.249.73.131] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Jul 12 01:32:01 2014] [error] [client 173.234.14.177] Invalid URI in request User-Agent: Java/1.6.0_27
+[Mon Jul 14 16:00:28 2014] [error] [client 173.208.35.46] Invalid URI in request User-Agent: Java/1.6.0_27
+[Thu Jul 17 16:37:51 2014] [error] [client 66.249.70.167] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Jul 18 07:32:10 2014] [error] [client 192.99.9.164] client denied by server configuration: /home/dsvc/dsvc.org/html/modules/taxonomy/taxonomy.info
+[Fri Jul 18 22:02:08 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:11:24 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:11:48 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:12:14 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:12:36 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:13:44 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:21:27 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:21:52 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:28:41 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:30:09 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Fri Jul 18 22:31:42 2014] [error] [client 74.105.162.233] Attempt to serve directory: /home/dsvc/dsvc.org/html/sites/dallas-show.dsvc.org/files/js/
+[Sat Jul 26 02:29:26 2014] [error] [client 66.249.74.73] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Aug 03 18:07:40 2014] [error] [client 66.249.65.56] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Aug 06 22:32:49 2014] [error] [client 194.60.242.251] script not found or unable to stat: /var/www/cgi-bin/php
+[Wed Aug 06 22:32:50 2014] [error] [client 194.60.242.251] script not found or unable to stat: /var/www/cgi-bin/php5
+[Wed Aug 06 22:32:52 2014] [error] [client 194.60.242.251] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Wed Aug 06 22:32:53 2014] [error] [client 194.60.242.251] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Wed Aug 06 22:32:54 2014] [error] [client 194.60.242.251] script not found or unable to stat: /var/www/cgi-bin/php4
+[Sat Aug 09 04:37:04 2014] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Aug 09 04:37:05 2014] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Aug 09 04:37:06 2014] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sat Aug 09 04:37:07 2014] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sat Aug 09 04:37:08 2014] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php4
+[Mon Aug 11 15:55:23 2014] [error] [client 50.249.89.21] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Aug 11 15:55:25 2014] [error] [client 50.249.89.21] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Aug 12 14:17:00 2014] [error] [client 66.249.65.64] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Aug 17 16:24:17 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Sun Aug 17 20:25:22 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Sun Aug 17 20:25:22 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Sun Aug 17 22:13:30 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Sun Aug 17 23:49:48 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Sun Aug 17 23:49:48 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Mon Aug 18 01:23:49 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Mon Aug 18 01:23:50 2014] [error] [client 131.220.240.83] request failed: error reading the headers
+[Wed Aug 20 14:18:00 2014] [error] [client 71.170.231.11] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Aug 20 14:18:03 2014] [error] [client 71.170.231.11] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Aug 21 07:17:01 2014] [error] [client 66.249.65.128] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Aug 23 15:49:26 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Aug 23 15:49:28 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Aug 23 15:49:29 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sat Aug 23 15:49:31 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sat Aug 23 15:49:33 2014] [error] [client 222.216.28.248] script not found or unable to stat: /var/www/cgi-bin/php4
+[Tue Aug 26 20:35:52 2014] [error] [client 192.99.9.164] client denied by server configuration: /home/dsvc/dsvc.org/html/modules/taxonomy/taxonomy.info
+[Wed Aug 27 16:49:52 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Aug 27 16:49:53 2014] [error] [client 63.95.64.254] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Aug 28 03:18:48 2014] [error] [client 66.249.65.116] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Thu Aug 28 03:18:50 2014] [error] [client 66.249.65.108] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Thu Aug 28 03:18:52 2014] [error] [client 66.249.65.116] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Thu Aug 28 03:18:52 2014] [error] [client 66.249.65.116] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Fri Aug 29 00:07:22 2014] [error] [client 66.249.73.99] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_bd06-1h7XFydzrxPN_erCiKQRUCN5iqTvRyfb3aSu6g.js
+[Fri Aug 29 16:58:44 2014] [error] [client 66.249.64.199] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Aug 31 06:57:43 2014] [error] [client 94.100.31.178] client sent HTTP/1.1 request without hostname (see RFC2616 section 14.23): /
+[Tue Sep 02 17:43:26 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Sep 02 17:43:27 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php5
+[Tue Sep 02 17:43:28 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Tue Sep 02 17:43:28 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Tue Sep 02 17:43:29 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php4
+[Wed Sep 03 20:01:11 2014] [error] [client 207.241.237.209] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://dallas-show.dsvc.org/robots.txt
+[Thu Sep 04 03:48:41 2014] [error] [client 66.249.65.144] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Sep 05 12:25:24 2014] [error] [client 12.148.134.58] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Fri Sep 05 12:25:25 2014] [error] [client 12.148.134.58] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Sep 08 23:10:34 2014] [error] [client 68.232.7.0] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Sep 08 23:10:38 2014] [error] [client 68.232.7.0] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Sep 09 03:13:25 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Sep 09 03:13:25 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php5
+[Tue Sep 09 03:13:26 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Tue Sep 09 03:13:27 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Tue Sep 09 03:13:28 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php4
+[Tue Sep 09 08:46:10 2014] [error] [client 195.154.183.174] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Tue Sep 09 09:08:24 2014] [error] [client 195.154.183.174] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Tue Sep 09 09:16:02 2014] [error] [client 195.154.183.174] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Tue Sep 09 15:21:44 2014] [error] [client 71.252.251.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Sep 09 15:21:45 2014] [error] [client 71.252.251.194] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Sep 10 11:10:57 2014] [error] [client 209.48.208.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Sep 10 11:10:59 2014] [error] [client 209.48.208.66] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Sep 13 03:53:33 2014] [error] [client 66.249.67.128] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Sep 14 14:53:46 2014] [error] [client 66.249.65.116] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_LpmPZIWliHXcddZVuQxX_ePXTKSVOGrafebN5959STg.js
+[Sun Sep 14 14:53:48 2014] [error] [client 66.249.65.108] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_9IW2QIuZJ0_rLRHDxFILvQqFBRhlo2TjvRtV-PVd13s.js
+[Sun Sep 14 14:53:48 2014] [error] [client 66.249.65.116] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_KgCNQm_jdlbuilvxNQyCuzPIxbaHFd56Yhs0Gn31sJo.js
+[Sun Sep 14 14:53:49 2014] [error] [client 66.249.65.108] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_zzcIWOou_jnX0ZWAIA4sb6Xy_p5a8FZNA0GySvuWjPU.js
+[Mon Sep 15 08:26:53 2014] [error] [client 66.249.65.100] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_NPVBvZfgwcrUZtEyuU-NtxCluoTuP7i_OpiWdWfJPVE.js
+[Mon Sep 15 08:26:54 2014] [error] [client 66.249.65.108] File does not exist: /home/dsvc/dsvc.org/html/sites/dsvc.org/files/js/js_lgAAOlplEun7p_8Pb-8dM079wtvnfwLZ0hAK0mH7Dto.js
+[Mon Sep 15 10:15:22 2014] [error] [client 14.139.221.148] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Sep 15 10:15:22 2014] [error] [client 14.139.221.148] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Sep 16 09:23:57 2014] [error] [client 192.99.9.164] client denied by server configuration: /home/dsvc/dsvc.org/html/modules/taxonomy/taxonomy.info
+[Sat Sep 20 18:17:56 2014] [error] [client 74.207.244.247] client denied by server configuration: /home/dsvc/dsvc.org/html/.git
+[Sun Sep 21 10:54:54 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Sep 27 05:38:23 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Oct 02 12:18:44 2014] [error] [client 99.46.122.91] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Oct 02 22:46:49 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Oct 04 01:21:27 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Oct 07 17:14:44 2014] [error] [client 50.84.215.122] PHP Fatal error:  Cannot access empty property in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.module on line 195, referer: https://store.dsvc.org/resources/membership
+[Sun Oct 12 08:16:25 2014] [error] [client 107.178.200.33] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sun Oct 12 23:16:26 2014] [error] [client 107.178.200.145] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Oct 14 18:34:49 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Wed Oct 15 09:25:18 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Oct 16 09:01:42 2014] [error] [client 68.113.201.249] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Oct 16 09:14:03 2014] [error] [client 68.113.201.249] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Oct 21 20:35:48 2014] [error] [client 192.99.9.164] client denied by server configuration: /home/dsvc/dsvc.org/html/modules/taxonomy/taxonomy.info
+[Mon Oct 27 11:02:19 2014] [error] [client 173.64.218.211] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Oct 28 22:53:03 2014] [error] [client 66.249.65.72] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Oct 30 03:41:59 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Oct 30 03:42:00 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Oct 30 03:42:01 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Oct 30 03:42:01 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Oct 30 03:42:02 2014] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php4
+[Fri Nov 07 16:14:45 2014] [error] [client 24.153.218.13] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Tue Nov 11 06:15:08 2014] [error] [client 192.99.9.164] client denied by server configuration: /home/dsvc/dsvc.org/html/modules/taxonomy/taxonomy.info
+[Fri Nov 14 05:34:57 2014] [error] [client 66.249.65.64] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Mon Nov 17 14:11:09 2014] [error] Unable to configure RSA server private key
+[Mon Nov 17 14:11:09 2014] [error] SSL Library Error: 185073780 error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Mon Nov 17 14:11:24 2014] [error] Unable to configure RSA server private key
+[Mon Nov 17 14:11:24 2014] [error] SSL Library Error: 185073780 error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Mon Nov 17 14:12:15 2014] [error] Unable to configure RSA server private key
+[Mon Nov 17 14:12:15 2014] [error] SSL Library Error: 185073780 error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Mon Nov 17 14:14:03 2014] [error] Unable to configure RSA server private key
+[Mon Nov 17 14:14:03 2014] [error] SSL Library Error: 185073780 error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Mon Nov 17 14:15:21 2014] [error] Unable to configure RSA server private key
+[Mon Nov 17 14:15:21 2014] [error] SSL Library Error: 185073780 error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+[Tue Nov 18 04:48:54 2014] [error] [client 66.249.65.64] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Nov 20 12:41:34 2014] [error] [client 104.138.85.255] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Thu Nov 20 12:41:35 2014] [error] [client 104.138.85.255] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico
+[Sat Nov 22 05:36:57 2014] [error] [client 62.210.93.52] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Wed Dec 03 09:22:47 2014] [error] [client 50.84.200.226] PHP Fatal error:  Cannot access empty property in /home/dsvc/dsvc.org/html/sites/all/modules/dsvc_membership/dsvc_membership.module on line 195, referer: https://store.dsvc.org/resources/membership
+[Wed Dec 03 09:22:47 2014] [error] [client 50.84.200.226] File does not exist: /home/dsvc/dsvc.org/html/favicon.ico, referer: https://store.dsvc.org/resources/membership
+[Fri Dec 05 11:53:24 2014] [error] [client 75.98.84.57] script not found or unable to stat: /var/www/cgi-bin/php
+[Fri Dec 05 11:53:25 2014] [error] [client 75.98.84.57] script not found or unable to stat: /var/www/cgi-bin/php5
+[Fri Dec 05 11:53:25 2014] [error] [client 75.98.84.57] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Fri Dec 05 11:53:25 2014] [error] [client 75.98.84.57] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Fri Dec 05 11:53:26 2014] [error] [client 75.98.84.57] script not found or unable to stat: /var/www/cgi-bin/php4
+[Tue Jan 06 12:36:43 2015] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php
+[Tue Jan 06 12:36:44 2015] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php5
+[Tue Jan 06 12:36:45 2015] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Tue Jan 06 12:36:46 2015] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Tue Jan 06 12:36:47 2015] [error] [client 80.73.9.164] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Jan 15 07:16:36 2015] [error] [client 202.191.57.118] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Jan 15 07:16:38 2015] [error] [client 202.191.57.118] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Jan 15 07:16:39 2015] [error] [client 202.191.57.118] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Jan 15 07:16:40 2015] [error] [client 202.191.57.118] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Jan 15 07:16:41 2015] [error] [client 202.191.57.118] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Jan 22 01:29:40 2015] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Jan 22 01:29:42 2015] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Jan 22 01:29:42 2015] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Jan 22 01:29:43 2015] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Jan 22 01:29:44 2015] [error] [client 187.63.160.3] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Feb 12 15:54:50 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Feb 12 15:54:51 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Feb 12 15:54:52 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Feb 12 15:54:53 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Feb 12 15:54:54 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Mar 12 09:27:30 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Mar 12 09:27:31 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Mar 12 09:27:32 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Mar 12 09:27:33 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Mar 12 09:27:34 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php4
+[Sun Mar 29 17:26:43 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php
+[Sun Mar 29 17:26:45 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sun Mar 29 17:26:46 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sun Mar 29 17:26:47 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sun Mar 29 17:26:48 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php4
+[Thu Apr 02 14:52:30 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Apr 02 14:52:31 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Apr 02 14:52:32 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Apr 02 14:52:33 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Apr 02 14:52:34 2015] [error] [client 213.30.120.214] script not found or unable to stat: /var/www/cgi-bin/php4
+[Sat Apr 11 16:55:07 2015] [error] [client 54.153.14.125] request failed: error reading the headers
+[Mon May 04 16:39:45 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php
+[Mon May 04 16:39:47 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php5
+[Mon May 04 16:39:48 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Mon May 04 16:39:49 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Mon May 04 16:39:50 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php4
+[Mon May 18 18:07:01 2015] [error] [client 89.248.171.138] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Thu Jun 04 23:54:23 2015] [error] [client 153.92.98.58] Invalid Content-Length
+[Thu Jun 11 04:43:56 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php
+[Thu Jun 11 04:43:58 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php5
+[Thu Jun 11 04:43:59 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Thu Jun 11 04:44:00 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Thu Jun 11 04:44:01 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php4
+[Mon Jul 13 17:19:06 2015] [error] [client 94.102.49.169] script not found or unable to stat: /var/www/cgi-bin/mft
+[Mon Jul 13 17:19:23 2015] [error] [client 94.102.49.169] user productmaker not found: /maker/snwrite.cgi
+[Sat Jul 25 07:03:46 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Jul 25 07:03:47 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Jul 25 07:03:48 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sat Jul 25 07:03:49 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php.cgi
+[Sat Jul 25 07:03:50 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php4
+[Mon Aug 17 01:43:29 2015] [error] [client 46.165.220.215] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Thu Aug 20 00:41:08 2015] [error] [client 54.204.147.244] Invalid URI in request -e HEAD / HTTP/1.0
+[Tue Aug 25 05:32:23 2015] [error] [client 88.202.224.162] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Wed Sep 30 12:01:40 2015] [error] [client 109.123.101.28] script not found or unable to stat: /var/www/cgi-bin/webcm
+[Sat Oct 03 11:49:17 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php
+[Sat Oct 03 11:49:19 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php5
+[Sat Oct 03 11:49:21 2015] [error] [client 203.162.15.233] script not found or unable to stat: /var/www/cgi-bin/php-cgi
+[Sun Oct 11 08:58:34 2015] [error] [client 158.255.7.176] script not found or unable to stat: /var/www/cgi-bin/webcm

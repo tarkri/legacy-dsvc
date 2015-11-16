@@ -1,0 +1,413 @@
+/*===========================================================================
+	Colors (Global)
+
+	This stylesheet defines the colors for the following:
+	* Text and links
+	* Backgrounds
+	* Borders
+===========================================================================*/
+
+/*
+	Color Glossary
+	grey 1(darkest) - 53,53,40
+	grey 2 - 100,100,90
+	grey 3 - 184,184,179
+	grey 4 - 225,225,223
+	grey 5(lightest) - 241,241,239
+
+	dark blue - 77,150,196
+	light blue - 133,183,214
+	white - 255,255,255
+	red (form error) - 178,27,27
+	green (job posting reminder) - 120,193,77
+
+*/
+
+	/* Page
+	===========================================================================*/
+
+	html {
+		color:            black;
+		background-color: rgb(241,241,239);
+	}
+
+	html body.fckEditor {
+		background-color: rgb(241,241,239);
+	}
+
+	body #page {
+		color:            rgb(100,100,90);
+		background-color: white;
+	}
+
+	/* Defaults
+	===========================================================================*/
+
+	/* Misc. Block */
+
+	/* Misc. Inline */
+
+	/* Links */
+
+	ul.contact-list li p a:link,
+	ul.contact-list li p a:visited,
+	a:link,
+	a:visited {
+		color: rgb(100,100,90);
+	}
+
+	ul.contact-list li p a:focus,
+	ul.contact-list li p a:hover,
+	ul.contact-list li p a:active,
+	a:focus,
+	a:hover,
+	a:active {
+		color: rgb(77,150,196);
+	}
+
+	ul a:link,
+	ul a:visited,
+	p a:link,
+	p a:visited {
+		color: rgb(133,183,214);
+	}
+
+	ul a:focus,
+	ul a:hover,
+	ul a:active,
+	p a:focus,
+	p a:hover,
+	p a:active {
+		color: rgb(53,53,40);
+	}
+
+	/* Headings */
+
+	/* Lists */
+
+	/* Data Tables */
+
+	table th,
+	table td {
+		border-color: black;
+	}
+
+	/* Forms */
+
+	legend {
+		color: black; /* for IE, does not inherit color */
+	}
+
+	/* Common Classes
+	===========================================================================*/
+
+	input.type-text,
+	input.type-password,
+	textarea,
+	select {
+		border-top-color: #7c7c7c;
+		border-left-color: #c3c3c3;
+		border-right-color: #c3c3c3;
+		border-bottom-color: #ddd;
+		background-color: white;
+	}
+
+	label {
+		color: rgb(100,100,90);
+	}
+
+	ul.actions li {
+		border-color: rgb(225,225,223);
+	}
+
+	ul.actions li a:link,
+	ul.actions li a:visited {
+		color: rgb(133,183,214);
+	}
+
+	ul.actions li a:focus,
+	ul.actions li a:hover,
+	ul.actions li a:active {
+		background-color: rgb(133,183,214);
+		color: white;
+	}
+
+	/* Meetings & Show Gallery
+	===========================================================================*/
+
+	a#back-to-archive:link,
+	a#back-to-archive:visited,
+	#show-piece-meta a:link,
+	#show-piece-meta a:visited,
+	ul#show-gallery li a.view-larger:link,
+	ul#show-gallery li a.view-larger:visited {
+		color: rgb(133,183,214);
+	}
+
+	a#back-to-archive:focus,
+	a#back-to-archive:hover,
+	a#back-to-archive:active,
+	#show-piece-meta a:focus,
+	#show-piece-meta a:hover,
+	#show-piece-meta a:active,
+	ul#show-gallery li a.view-larger:focus,
+	ul#show-gallery li a.view-larger:hover,
+	ul#show-gallery li a.view-larger:active {
+		color: white;
+		background-color: rgb(133,183,214);
+	}
+
+	/* Rough Cover Gallery
+	===========================================================================*/
+
+	ul#rough-cover-gallery li {
+	  border-color: rgb(225,225,223);
+	  background-color: white;
+	}
+
+  ul#show-gallery.rough-covers li {
+    border-color: #E1E1DF;
+  }
+
+	/* Individual Meeting
+	===========================================================================*/
+
+	#meeting {
+		border-color: rgb(225,225,223);
+	}
+
+	/* Comments
+	===========================================================================*/
+
+	.comment {
+		border-color: rgb(225,225,223);
+	}
+
+	/* Job Listings
+	===========================================================================*/
+
+	#block-block-2 p {
+		border-color: rgb(225,225,223);
+	}
+
+	ul.job-listings li div h2 {
+		border-bottom-color: rgb(225,225,223);
+	}
+
+	div.job-description a:link,
+	div.job-description a:visited {
+		color: rgb(133,183,214);
+	}
+
+	div.job-description a:focus,
+	div.job-description a:hover,
+	div.job-description a:active {
+		background-color: rgb(133,183,214);
+		color: white;
+	}
+
+  div.view-job-board table tr.odd td {
+    background-color: white;
+    border-color: none;
+  }
+
+  span.today,
+  span.yesterday {
+    color: rgb(120,193,77);
+  }
+
+  div.view-job-board table tr.even td {
+    background-color: transparent;
+    border-color: none;
+  }
+
+	div.job h2 {
+		border-color: rgb(225,225,223);
+	}
+
+	span.members,
+	p.members {
+		color: rgb(120,193,77);
+	}
+
+	/* Professional Awards
+	===========================================================================*/
+
+	div.award {
+		border-color: rgb(225,225,223);
+	}
+
+	/* Pagination
+	===========================================================================*/
+
+	ul.pager li {
+		color: rgb(139,179,210);
+	}
+
+	ul.pager li a:link,
+	ul.pager li a:visited {
+		color: rgb(139,179,210);
+		border-color: rgb(139,179,210);
+	}
+
+	ul.pager li a:focus,
+	ul.pager li a:hover,
+	ul.pager li a:active {
+	  color: white;
+		background-color: rgb(139,179,210);
+		border-color: rgb(139,179,210);
+	}
+
+  ul.pager li.pager-current {
+		color: white;
+		background-color: rgb(99,99,90);
+		border-color: rgb(99,99,90);
+  }
+
+  ul.pager-key li a:link,
+  ul.pager-key li a:visited {
+		color: rgb(139,179,210);
+		border-color: rgb(139,179,210);
+  }
+
+  ul.pager-key li a:focus,
+  ul.pager-key li a:hover,
+  ul.pager-key li a:active {
+    color: white;
+		background-color: rgb(139,179,210);
+		border-color: rgb(139,179,210);
+  }
+
+	/* Secondary Content
+	===========================================================================*/
+
+	ul#utility-navigation li {
+		border-color: rgb(184,184,179);
+	}
+
+	ul#utility-navigation li a:link,
+	ul#utility-navigation li a:visited {
+		color: rgb(100,100,90);
+	}
+
+	ul#utility-navigation li a:focus,
+	ul#utility-navigation li a:hover,
+	ul#utility-navigation li a:active {
+		color: rgb(77,150,196);
+	}
+
+	a#monthly-sponsor a:link,
+	a#monthly-sponsor a:visited {
+		color: rgb(100,100,90);
+	}
+
+	a#monthly-sponsor a:focus,
+	a#monthly-sponsor a:hover,
+	a#monthly-sponsor a:active {
+		color: rgb(77,150,196);
+	}
+
+	#main-content.professional-referrals h2,
+	#new-jobs ul#jobs-navigation,
+	#new-jobs h2 {
+		border-color: rgb(225,225,223);
+	}
+
+	ul.post-metadata li,
+	#new-jobs ul.utility-navigation li {
+		border-color: rgb(225,225,223);
+	}
+
+	.back:link,
+	.back:visited,
+	ul.post-metadata li a:link,
+	ul.post-metadata li a:visited,
+	#new-jobs ul.utility-navigation li a:link,
+	#new-jobs ul.utility-navigation li a:visited {
+		color: rgb(133,183,214);
+	}
+
+	.back:focus,
+	.back:hover,
+	.back:active,
+	ul.post-metadata li a:focus,
+	ul.post-metadata li a:hover,
+	ul.post-metadata li a:active,
+	#new-jobs ul.utility-navigation li a:focus,
+	#new-jobs ul.utility-navigation li a:hover,
+	#new-jobs ul.utility-navigation li a:active {
+		color: white;
+		background-color: rgb(133,183,214);
+	}
+
+	#new-jobs ul#job-list li a:link,
+	#new-jobs ul#job-list li a:visited {
+		color: rgb(100,100,90);
+		border-color: rgb(225,225,223);
+	}
+
+	#new-jobs ul#job-list li a:focus,
+	#new-jobs ul#job-list li a:hover,
+	#new-jobs ul#job-list li a:active {
+		color: black;
+	}
+
+	/* Primary Navigation
+	===========================================================================*/
+
+	#primary-navigation h2 {
+		color: rgb(100,100,90);
+		border-color: rgb(225,225,223);
+	}
+
+	#primary-navigation ul li {
+		color: rgb(184,184,179);
+	}
+
+	p#footer a:link,
+	p#footer a:visited,
+	#custom-logo p a:link,
+	#custom-logo p a:visited,
+	#primary-navigation ul li a:link,
+	#primary-navigation ul li a:visited {
+		color: rgb(100,100,90);
+	}
+
+	p#footer a:focus,
+	p#footer a:hover,
+	p#footer a:active,
+	#custom-logo p a:focus,
+	#custom-logo p a:hover,
+	#custom-logo p a:active,
+	#primary-navigation ul li a:focus,
+	#primary-navigation ul li a:hover,
+	#primary-navigation ul li a:active {
+		color: rgb(77,150,196);
+	}
+
+	/* Logo
+	===========================================================================*/
+
+	/* Footer
+	===========================================================================*/
+
+	ul#site-credits li,
+	p#footer {
+		border-color: rgb(225,225,223);
+	}
+
+	p#footer {
+		background-color: rgb(255,255,255);
+	}
+
+	/* Modal Overlay
+	===========================================================================*/
+
+	div.modal {
+		border-color: rgb(133,183,214);
+		background-color: white;
+	}
+
+	div.jqmOverlay {
+		background-color: black;
+	}

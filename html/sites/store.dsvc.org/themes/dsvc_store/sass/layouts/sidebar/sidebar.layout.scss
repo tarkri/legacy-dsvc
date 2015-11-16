@@ -1,0 +1,40 @@
+@import "compass";
+@import "breakpoint";
+@import "singularitygs";
+@import "../../variables/**/*";
+
+html body {
+	background-image: url('../../../images/background.gif');
+	background-repeat: repeat-y;
+	background-position: top center;
+}
+
+.l-page {
+	margin: 0 auto;
+
+	@include breakpoint($tab) {
+		width: $tab;
+	}
+
+	@include breakpoint($desk, true) {
+		width: $desk;
+	}
+}
+
+.l-footer {
+	margin-top: 40px;
+}
+
+.l-main {
+	@include clearfix();
+}
+
+@include breakpoint($tab, true) {
+	.l-region--sidebar-first {
+		@include grid-span(3, 1);
+	}
+
+	.l-content {
+		@include grid-span(9, 4);
+	}
+}
